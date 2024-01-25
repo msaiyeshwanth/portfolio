@@ -127,7 +127,7 @@ padding-top: 75px;
     background-position: center;
     background-repeat: no-repeat;
     width: auto;
-    min-height: calc(100vh - 120px); 
+    height: 100vh; 
     position: relative;
     z-index: 1;
     animation: fadeIn 3s ease-in-out;
@@ -367,7 +367,7 @@ input[type="submit"]:hover {
         background-position: center;
         background-repeat: no-repeat;
         width: auto;
-        height: 81vh; 
+        height: 100vh; 
         position: relative;
         z-index: 1;
         animation: fadeIn 3s ease-in-out;
@@ -412,7 +412,7 @@ input[type="submit"]:hover {
     .homesection {
        background-size: 190% 100%;
        width: auto;
-       height: 70vh;
+       height: 100vh;
     }
     .header{
         padding: 10px 0px;
