@@ -128,7 +128,7 @@ padding-top: 75px;
 .homesection{
     padding-top: 60px; 
     text-align: center;
-    background-image: url('/assets/me1.jpeg');
+    background-image: url('assets/me1.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
