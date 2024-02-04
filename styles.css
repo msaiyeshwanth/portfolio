@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
+    /* font-family: 'Arial', sans-serif; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: whitesmoke;
+    background-color: rgb(234, 244, 246);
+}
+
+* {
+    font-family: 'Raleway', sans-serif;
 }
 
 .container {
@@ -284,7 +290,7 @@ padding-top: 75px;
     text-decoration: none;
 }
 
-h2 {
+.modal h2 {
     color: #fff; 
 }
 
@@ -326,6 +332,34 @@ input[type="submit"]:hover {
 .modal-content {
     margin-bottom: 20px; 
     text-align: center;
+}
+
+.introsection {
+    position: relative;
+}
+
+.introsection .container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+}
+
+.image-container {
+    width: 30%; 
+    position: relative;
+}
+
+.image-container img {
+    padding-top: 150px;
+    width: 100%;
+    min-width: 200px;
+    height: auto;
+    min-height: 200px;
+}
+
+.text-container {
+    width: 100%; 
+    padding-right: 50px;
 }
 
 @media screen and (max-width: 768px) {
@@ -375,6 +409,18 @@ input[type="submit"]:hover {
     .header{
         padding: 10px 0px;
     }
+    .text-container{
+        width: 100%;
+    }
+    .image-container {
+        width: 10%; 
+        padding-right: 0;
+    }
+    .image-container img{
+        padding-top: 200px;
+        min-width: 60px;
+        min-height: 80px;
+    }
 }
 
 @media only screen and (max-width: 576px) {
@@ -417,4 +463,17 @@ input[type="submit"]:hover {
     .header{
         padding: 10px 0px;
     }
+    .text-container{
+        width: 90%;
+    }
+    .image-container {
+        width: 10%; 
+        padding-right: 0;
+    }
+    .image-container img{
+        padding-top: 200px;
+        max-width: 60px;
+        max-height: 80px;
+    }
 }
+
