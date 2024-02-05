@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: rgb(234, 244, 246);
+    background-color: rgb(237, 243, 244);
 }
 
 * {
@@ -269,9 +269,9 @@ padding-top: 75px;
 .modal-content {
     background-color: #333; 
     margin: 10% auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #555; 
-    width: 80%;
+    width: 60%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -362,6 +362,111 @@ input[type="submit"]:hover {
     padding-right: 50px;
 }
 
+
+.introsection li {
+    margin-bottom: 10px; 
+}
+
+.cleaningsection{
+    padding-top: 75px;
+    a {
+        color: #3498db;
+        text-decoration: none; 
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: #2070a0;
+    }
+}
+
+.cleaningsection ul > li {
+    margin-bottom: 10px; 
+}
+
+.cleaning-image-container {
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.thumbnail {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 20px 10px;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail img:hover {
+    transform: scale(1.1);
+}
+
+#imageModal {
+    display: none;
+}
+
+#imageModal .modal-content {
+    max-width: 60%;
+}
+
+#imageModal img {
+    width: 100%;
+    height: auto;
+}
+
+#imageModal .close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#imageModal .close:hover,
+#imageModal .close:focus {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.dropdown .dropdown-content .models-dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown-content .models-dropdown .dropdown-content {
+    top: 0;
+    left: 100%;
+    min-width: 160px; /* Adjust this value to control the width */
+}
+
+/* Additional styles to ensure it doesn't overlap with the main content */
+.navbar {
+    position: relative;
+    z-index: 1;
+}
+
+.dropdown .models-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px; /* Adjust this value to control the width */
+}
+
+.dropdown .models-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none;
@@ -396,7 +501,6 @@ input[type="submit"]:hover {
     .homesection{
         padding-top: 75px; 
         text-align: center;
-        background-image: url('me1.jpeg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

@@ -7,29 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-        <nav class="navbar">
-            <div class="nav-toggle" id="navToggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-btn active">Machine Learning</a>
-                    <div class="dropdown-content">
-                        <a href="introduction.html">Introduction</a>
-                        <a href="DataPrepEDA.html" class="active">DataPrep/EDA</a>
-                        <a href="conclusions.html">Conclusions</a>
-                    </div>
-                </li>
-                <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
-            </ul>
-        </nav>
-    </div>
-  </header>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" >Home</a></li>
+                    <li class="dropdown">
+                        <a href="introduction.html" class="dropdown-btn active">Machine Learning</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="DataPrepEDA.html" class="active">DataPrep/EDA</a>
+                            <div class="dropdown models-dropdown">
+                                <a href="clustering.html" class="dropdown-btn">Models</a>
+                                <div class="dropdown-content">
+                                    <a href="clustering.html">Clustering</a>
+                                    <a href="arm.html">ARM</a>
+                                    <a href="dt.html">DT</a>
+                                    <a href="nb.html">NB</a>
+                                    <a href="svm.html">SVM</a>
+                                    <a href="regression.html">Regression</a>
+                                    <a href="nn.html">NN</a>
+                                </div>
+                            </div>
+                            <a href="conclusions.html">Conclusions</a>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
   <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">
         <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
@@ -41,11 +53,75 @@
         </form>
     </div>
 </div>
-  <section style="padding-top: 100px;">
+<section class="cleaningsection">
     <div class="container">
-        <p>DataPrep/EDA</p>
+        <h1>ABOUT DATASET:</h1>
+        <p>This project's dataset is the "Historical Hourly Weather Data," which was collected from Kaggle. Encompassing a rich compilation of meteorological information across various cities, the dataset consists of multiple CSV files, each representing a crucial facet of weather data. Here's a concise overview of the primary datasets:</p>
+        
+        <ul>
+            <li><strong>city_attributes.csv:</strong> Details about the cities featured in the dataset, such as geographical coordinates, country, and elevation.</li>
+            <li><strong>humidity.csv:</strong> Information on recorded humidity levels over time for different cities.</li>
+            <li><strong>pressure.csv:</strong> Data related to atmospheric pressure measurements, offering insights into air density variations.</li>
+            <li><strong>temperature.csv:</strong> Temperature data recorded over time for various cities, providing insights into temperature fluctuations.</li>
+            <li><strong>weather_description.csv:</strong> Detailed descriptions of weather conditions, facilitating the categorization and understanding of the atmospheric state.</li>
+            <li><strong>wind_direction.csv:</strong> Information on prevailing wind directions recorded over time in different locations.</li>
+            <li><strong>wind_speed.csv:</strong> Data on the speed of the wind over time, aiding in the analysis of wind patterns and intensities.</li>
+        </ul>
+
+        <p>This rich dataset enables in-depth investigation and analysis, allowing the project to discover trends, anomalies, and insights into the dynamic nature of meteorological conditions. Furthermore, the project uses data from the OpenWeatherAPI to supplement the Kaggle dataset with real-time weather information, enabling for complete exploration of numerous weather occurrences and the development of effective machine learning models for weather prediction and insights.</p>
+
+        <h2>Source:</h2>
+        <ol>
+            <li><p><strong>Historical Hourly Weather Data (csv): </strong><a href="https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data/data" target="_blank">Kaggle Data</a></p></li>
+            <li>
+                <p> <strong>API: </strong><a href="https://openweathermap.org/api" target="_blank">OpenWeatherAPI</a></p>
+                <p><strong>Endpoint: </strong><code>https://api.openweathermap.org/data/2.5/weather</code></p>
+                <p><strong>API Call Example: </strong><code>https://api.openweathermap.org/data/2.5/weather?q=Denver&appid={API key}</code></p>
+            </li>
+
+        </ol>
+        <h1>BEFORE CLEANING (Historical Hourly Weather Data): </h1>
+        <div id="imageModal" class="modal" onclick="closeImageModal();">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeImageModal();">&times;</span>
+                <img id="expandedImage" src="" alt="Expanded Image">
+            </div>
+        </div>
+        
+        <div class="cleaning-image-container">
+            <div class="thumbnail" onclick="expandImage('assets/beforecleaning1.png')">
+                <img src="assets/beforecleaning1.png" alt="Before Cleaning 1">
+            </div>
+            <div class="thumbnail" onclick="expandImage('assets/beforecleaning2.png')">
+                <img src="assets/beforecleaning2.png" alt="Before Cleaning 2">
+            </div>
+            <div class="thumbnail" onclick="expandImage('assets/beforecleaning3.png')">
+                <img src="assets/beforecleaning3.png" alt="Before Cleaning 3">
+            </div>
+            <div class="thumbnail" onclick="expandImage('assets/beforecleaning4.png')">
+                <img src="assets/beforecleaning4.png" alt="Before Cleaning 4">
+            </div>
+            <div class="thumbnail" onclick="expandImage('assets/beforecleaning5.png')">
+                <img src="assets/beforecleaning5.png" alt="Before Cleaning 5">
+            </div>
+            <div class="thumbnail" onclick="expandImage('assets/beforecleaning6.png')">
+                <img src="assets/beforecleaning6.png" alt="Before Cleaning 6">
+            </div>
+        </div>
+        <h1>AFTER COMBINING DATASETS:</h1>
+        <div class="cleaning-image-container">
+            <div class="thumbnail" onclick="expandImage('assets/aftercombining.png')">
+                <img src="assets/aftercombining.png" alt="aftercombining">
+            </div>
+        </div>
+        <h1>AFTER CLEANING:</h1>
+        <div class="cleaning-image-container">
+            <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
+                <img src="assets/aftercleaning.png" alt="aftercleaning">
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
     <footer class="footer">
         <div class="container">

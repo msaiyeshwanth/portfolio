@@ -7,29 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-        <nav class="navbar">
-            <div class="nav-toggle" id="navToggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-btn active">Machine Learning</a>
-                    <div class="dropdown-content">
-                        <a href="introduction.html" class="active">Introduction</a>
-                        <a href="DataPrepEDA.html">DataPrep/EDA</a>
-                        <a href="conclusions.html">Conclusions</a>
-                    </div>
-                </li>
-                <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown();setActiveLink(this);" class="contact-btn">Contact Me</a></li>
-            </ul>
-        </nav>
-    </div>
-  </header>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="introduction.html" class="dropdown-btn active">Machine Learning</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html" class="active">Introduction</a>
+                            <a href="DataPrepEDA.html">DataPrep/EDA</a>
+                            <div class="dropdown models-dropdown">
+                                <a href="clustering.html" class="dropdown-btn">Models</a>
+                                <div class="dropdown-content">
+                                    <a href="clustering.html">Clustering</a>
+                                    <a href="arm.html">ARM</a>
+                                    <a href="dt.html">DT</a>
+                                    <a href="nb.html">NB</a>
+                                    <a href="svm.html">SVM</a>
+                                    <a href="regression.html">Regression</a>
+                                    <a href="nn.html">NN</a>
+                                </div>
+                            </div>
+                            <a href="conclusions.html">Conclusions</a>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
   <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">
         <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
@@ -45,7 +57,8 @@
     <div class="container">
         <div class="image-container">
             <img src="assets/clouds.jpeg" alt="Clouds Image">
-            <img src="assets/weatherintro.jpeg" alt="waether types">
+            <img src="assets/weatherintro.avif" alt="waether types">
+            <img src="assets/questions.avif" alt="QUESTIONS" class="questions-image">
         </div>
         <div class="text-container">
             <h1>TOPIC:</h1>
@@ -99,13 +112,29 @@
         <p>
             Despite notable strides, the terrain for exploration remains vast. 
             Machine learning introduces a new frontier for weather understanding, where predictive models, clustering algorithms, and classification tools can unveil patterns overlooked by traditional methods. 
-            The project aims to increase the spectrum of insights drawn from meteorological data, serving as a starting point for future research into climate science, sustainability, and environmental stewardship. 
+            This project aims to increase the spectrum of insights drawn from meteorological data, serving as a starting point for future research into climate science, sustainability, and environmental stewardship. 
             Exploring the untapped potential of Machine Learning in meteorology promises not just improved forecasting accuracy, but also a deeper knowledge of the complex interconnections that exist inside the Earth's atmosphere.
             It paves the way for more effective climate adaptation strategies. 
             By continually pushing the boundaries of what can be achieved with machine learning in the realm of weather data to contribute to the global dialogue on climate resilience and adaptation, ensuring a more sustainable future for generations to come.
             This not merely to interpret the language of the clouds but to translate it into actionable insights. 
             Join this expedition into the core of Weather Data Insights, where the seemingly mundane metamorphoses into a portal for profound understanding and enlightened decision-making.
         </p>
+        <h1>QUESTIONS:</h1>
+        <ol>
+            <li>How do temperature and humidity vary over different time intervals in Denver (2017) within the dataset, and are there noticeable trends or anomalies?</li>
+            <li>Which cities had the most days with a particular weather condition?</li>
+            <li>Is there a statistically significant correlation between any two variables in the dataset, and if so, what is the nature of this relationship?</li>
+            <li>How does the clustering of cities evolve over different seasons, and can we identify any consistent weather patterns within these clusters?</li>
+            <li>What clustering algorithm is most effective in grouping cities with similar temperature and humidity patterns?</li>
+            <li>Are there any meaningful insights about the co-occurrence of weather conditions in different cities that can be identified using association rule mining?</li>
+            <li>What insights can Naive Bayes provide regarding the probability of specific weather conditions occurring based on historical data?</li>
+            <li>What features have the most significant impact on the decision-making process when predicting weather conditions using decision trees?</li>
+            <li>What insights can SVM provide regarding the separation of cities with diverse weather patterns?</li>
+            <li>Can regression models offer insights into the relationships between weather conditions and geographical coordinates?</li>
+        </ol>
+
+        <p>Finally, curious to see how individual models i.e., Supervised Learning Models(Naive Bayes, Decision Trees, Support Vector Machines, Regression, Neural Networks) and Unsupervised Learning Models (Clustering, Association Rule Mining) will perform?</p>
+
         </div>
     </div>
   </section>
