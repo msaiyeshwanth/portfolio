@@ -466,6 +466,13 @@ input[type="submit"]:hover {
     display: block;
 }
 
+.cleaningsection .container ol li {
+    margin: 10px 0px;
+}
+.caption{
+    text-align: center;
+    margin: 10px 10px 0px 10px;
+}
 
 @media screen and (max-width: 768px) {
     .nav-links {
@@ -525,6 +532,19 @@ input[type="submit"]:hover {
         min-width: 60px;
         min-height: 80px;
     }
+
+    .cleaning-image-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px; 
+    }
+
+    .modal-content{
+        margin: 15% auto;
+    }
+    #imageModal .modal-content{
+        min-width: 70%;
+    }
 }
 
 @media only screen and (max-width: 576px) {
@@ -578,6 +598,17 @@ input[type="submit"]:hover {
         padding-top: 200px;
         max-width: 60px;
         max-height: 80px;
+    }
+    .cleaning-image-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 10px; 
+    }
+    .modal-content{
+        margin: 20% auto;
+    }
+    #imageModal .modal-content{
+        min-width: 90%;
     }
 }
 

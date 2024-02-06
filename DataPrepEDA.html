@@ -56,7 +56,7 @@
 <section class="cleaningsection">
     <div class="container">
         <h1>ABOUT DATASET:</h1>
-        <p>This project's dataset is the "Historical Hourly Weather Data," which was collected from Kaggle. Encompassing a rich compilation of meteorological information across various cities, the dataset consists of multiple CSV files, each representing a crucial facet of weather data. Here's a concise overview of the primary datasets:</p>
+        <p>This project's dataset is the "Historical Hourly Weather Data", which was collected from Kaggle. Encompassing a rich compilation of meteorological information across various cities, the dataset consists of multiple CSV files, each representing a crucial facet of weather data. Here's a concise overview of the primary datasets:</p>
         
         <ul>
             <li><strong>city_attributes.csv:</strong> Details about the cities featured in the dataset, such as geographical coordinates, country, and elevation.</li>
@@ -108,18 +108,238 @@
                 <img src="assets/beforecleaning6.png" alt="Before Cleaning 6">
             </div>
         </div>
-        <h1>AFTER COMBINING DATASETS:</h1>
-        <div class="cleaning-image-container">
-            <div class="thumbnail" onclick="expandImage('assets/aftercombining.png')">
-                <img src="assets/aftercombining.png" alt="aftercombining">
-            </div>
-        </div>
         <h1>AFTER CLEANING:</h1>
         <div class="cleaning-image-container">
             <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
                 <img src="assets/aftercleaning.png" alt="aftercleaning">
             </div>
         </div>
+        <h1>STEPS IN DATA PREPROCESSING:</h1>
+        <ol>
+            <h3><li>Merging the Kaggle Data:</li></h3>
+            <p>Multiple datasets comprising weather-related information, such as humidity, pressure, temperature, weather description, wind speed, and wind direction, were first melted and then combined to make a single dataset. The melting technique converted the original wide-format data to a long-format, making it easier to merge based on shared columns. The records were then integrated based on the 'datetime' and 'City' columns, yielding a comprehensive dataset with consolidated meteorological information for numerous cities. Furthermore, a merge with a city dataset based on the 'City' column was undertaken to enhance the weather dataset with additional information such as each city's country, latitude, and longitude. This final combined dataset provides a comprehensive perspective of weather conditions in different cities and geographical areas.</p>
+            <strong>After Merging:</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercombining.png')">
+                    <img src="assets/aftercombining.png" alt="aftercombining">
+                </div>
+            </div>
+
+            <h3><li> Sampling the Data: </li></h3>
+            <p>The dataset initially had 1,629,108 rows and 11 columns. To aid analysis and management of the vast dataset, a sample centred on 2017 and particular to the United States was created, resulting in a significantly smaller set of 215,811 rows. The 'datetime' column was converted to datetime format, and the 'Country' column, which contained a consistent value for the United States, was later removed because it was no longer useful. This sampling and cleaning process enabled more efficient handling of the data for subsequent analysis, specifically targeting weather conditions in the United States during the year 2017.</p>
+            <strong>After Sampling:</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftersampling.png')">
+                    <img src="assets/aftersampling.png" alt="aftersampling">
+                </div>
+            </div>
+
+            <h3><li> Making Column names consistent: </li></h3>
+            <p>To ensure consistency in column names, the column names of the dataset were reviewed and subsequently converted to lowercase. This step aids in standardizing the naming conventions, promoting clarity and simplicity throughout the analysis process. </p>
+            <strong>After renaming the Columns:</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/afterrenaming.png')">
+                    <img src="assets/afterrenaming.png" alt="afterrenaming">
+                </div>
+            </div>
+
+            <h3><li> Checking Duplicate Values: </li></h3>
+            <p>Checking duplicated rows to ensure data integrity and there were no duplicate records. The absence of duplicate rows in the dataset suggests that each entry is unique, contributing to the data's reliability and reducing redundancy.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/afterduplicates.png')">
+                    <img src="assets/afterduplicates.png" alt="afterduplicates">
+                </div>
+            </div>
+
+            <h3><li> Cleaning Missing Values: </li></h3>
+            <p>
+                <ol>
+                    <li><strong>Forward Fill (ffill): </strong>Initial imputation was performed using forward fill to propagate the last observed values within the same day and city, ensuring temporal consistency.</li>
+                    <li><strong>Mean Imputation: </strong>For the remaining missing values, mean imputation was applied based on the values within the same day and city group. This method helped to maintain the integrity of the data while filling gaps.</li>
+                    <li><strong>Dropping Rows: </strong>Rows with multiple missing values were eventually dropped from the dataset to ensure a more complete and consistent dataset for subsequent analysis. </li>
+                </ol>
+            Shape of Data after cleaning Missing Values: (213435, 10)
+            </p>
+            <strong>After Cleaning Missing Values :</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftermissingvalues.png')">
+                    <img src="assets/aftermissingvalues.png" alt="aftermissingvalues">
+                </div>
+            </div>
+
+            <h3><li> Converting Temperature from Kelvin to Fahrenheit: </li></h3>
+            <p>The temperature column, initially in Kelvin, was converted to Fahrenheit for better interpretability.</p>
+            <strong>After Cleaning Missing Values :</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/ktof.png')">
+                    <img src="assets/ktof.png" alt="ktof">
+                </div>
+            </div>
+
+            <h3><li> Creating Label: </li></h3>
+            <p>The weather description column was analyzed, and a new categorical column named 'weather' was created based on the types of weather conditions. The function weather_labels was defined to categorize weather descriptions into labels such as 'clear,' 'rainy,' 'snowy,' 'thunderstorm,' 'foggy,' 'cloudy,' and 'other.' The original weather description column was converted to lowercase to ensure consistency, and the new 'weather' column was added to the dataset. The resulting dataset, now with the 'weather' column, provides a more simplified and informative representation of weather conditions for further analysis, with 213,435 rows and 11 columns.</p>
+            <strong>Label Function :</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/labelfunction.png')">
+                    <img src="assets/labelfunction.png" alt="labelfunction">
+                </div>
+            </div>
+            <strong>After Creating Label: </strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/afterlabel.png')">
+                    <img src="assets/afterlabel.png" alt="afterlabel">
+                </div>
+            </div>
+
+            <h3><li> Checking Data Types: </li></h3>
+            <p>The data types of the columns in the dataset were initially inspected, revealing datetime and numerical types. Converted the qualitative, nominal, and categorical data (weather) to the 'Category' type. </p>
+            <strong>After Checking Data Types: </strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/afterdtypes.png')">
+                    <img src="assets/afterdtypes.png" alt="afterdtypes">
+                </div>
+            </div>
+        </ol>
+
+        <h1>EXPLORATORY DATA ANALYSIS:</h1>
+        <ol>
+            <h3><li>Checking Outliers using Box Plot: </li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda1.png')">
+                    <img src="assets/eda1.png" alt="eda1">
+                </div>
+            </div>
+            <p>The box plot provides a graphical representation of the distribution of values, highlighting potential outliers based on their deviation from the interquartile range. Outliers were identified in pressure, temperature and wind_speed. However, after further inspection using values_count() method, it was determined that they are due to natural variation in the data, also known as true outliers. True outliers should be left as they are in the dataset.</p>
+            
+            <h3><li>Distribution of Weather:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda2.png')">
+                    <img src="assets/eda2.png" alt="eda2">
+                </div>
+            </div>
+            <p>From the above Histogram, it is evident that for most of the days the weather is clear or cloudy across the cities in 2017.</p>
+
+            <h3><li>Which cities had the most days with a particular weather condition?</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda3clear.png')">
+                    <img src="assets/eda3clear.png" alt="eda3clear">
+                    <div class="caption">Clear Weather</div>
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/eda3cloudy.png')">
+                    <img src="assets/eda3cloudy.png" alt="eda3cloudy">
+                    <div class="caption">Cloudy Weather</div>
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/eda3foggy.png')">
+                    <img src="assets/eda3foggy.png" alt="eda3foggy">
+                    <div class="caption">Foggy Weather</div>
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/eda3rainy.png')">
+                    <img src="assets/eda3rainy.png" alt="eda3rainy">
+                    <div class="caption">Rainy Weather</div>
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/eda3snowy.png')">
+                    <img src="assets/eda3snowy.png" alt="eda3snowy">
+                    <div class="caption">Snowy Weather</div>
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/eda3ts.png')">
+                    <img src="assets/eda3ts.png" alt="eda3ts">
+                    <div class="caption">Thunderstorm Weather</div>
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/eda3others.png')">
+                    <img src="assets/eda3others.png" alt="eda3others">
+                    <div class="caption">Other Weather</div>
+                </div>
+            </div>
+            <p>The above Horizontal Bar Plots interprets Top 5 cities having most days of particular weather condition. 
+                <ol>
+                    <li>Las Vegas had most days with Clear weather</li>
+                    <li>Albuquerque had most days with Cloudy weather</li>
+                    <li>San Diego had most days with Foggy Weather</li>
+                    <li>Seattle had most days with Rainy weather</li>
+                    <li>Pittsburgh had most days with Snowy weather</li>
+                    <li>Miami had most days with Thunderstorm weather</li>
+                    <li>Los Angeles had most days with Other weather</li>
+                </ol></p>
+
+            <h3><li>How do temperature and humidity vary over different time intervals in Denver (2017) within the dataset, and are there noticeable trends or anomalies?</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda4.png')">
+                    <img src="assets/eda4.png" alt="eda4">
+                </div>
+            </div>
+            <p>The above Time Series Line plot provides below information:
+                <ol>
+                    <li>Temperature starts to increase from January to July and then decreases gradually from July to November in Denver (2017)</li>
+                    <li>January is the coldest month and July is the hottest month.</li>
+                    <li>There is no significant pattern in Humidity.</li>
+                    <li>January and May recorded highest humidity and March recorded Lowest Humidity.</li>
+                </ol>
+            </p>
+
+            <h3><li>Box plots of Temperature across the cities:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda5.png')">
+                    <img src="assets/eda5.png" alt="eda5">
+                </div>
+            </div>
+            <p>The above Box Plot shows the distribution of Temperature across the cities.
+                <ol>
+                    <li>Las Vegas recorded the highest Temperature in 2017</li>
+                    <li>Kansas City recorded the Lowest Temperature in 2017</li>
+                </ol>
+            </p>
+            
+            <h3><li>Correlation Heatmap:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda6.png')">
+                    <img src="assets/eda6.png" alt="eda6">
+                </div>
+            </div>
+            <p>The above Correlation Heatmap depicts the correlations coefficient between the numerical variables like temperature, humidity, pressure and wind_speed.
+                <ol>
+                    <li>There is a weak negative correlation between Temperature and humidity, which suggests that as temperatures increase, humidity tends to decrease.</li>
+                    <li>There are no significant correlations between other variables.</li>
+                </ol>
+            </p>
+
+            <h3><li>Average Temperature distribution across the Cities in 2017:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda7.png')">
+                    <img src="assets/eda7.png" alt="eda7">
+                </div>
+            </div>
+            <p>The above Map in Tableau depicts the Average Temperature distribution across the cities in 2017. City with highest average temperature is in Dark Blue color whereas the City with lowest average temperature color is in Light Blue color.
+                <ol>
+                    <li>Miami recorded the highest Average Temperature of 78.76 Fahrenheit in 2017.</li>
+                    <li>Minneapolis recorded the lowest Average Temperature of 49.68 Fahrenheit in 2018</li>
+                </ol>
+            </p>
+
+            <h3><li>Weather Distribution in Denver in 2017</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda8.png')">
+                    <img src="assets/eda8.png" alt="eda8">
+                </div>
+            </div>
+            <p>The above highlight table in Tableau depicts the weather distribution in Denver in 2017. The weather of Denver is clear for most of the time.</p>
+
+            <h3><li> Month wise Weather distribution in Denver in 2017</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda9.png')">
+                    <img src="assets/eda9.png" alt="eda9">
+                </div>
+            </div>
+            <p>The above line plot in Tableau depicts the Month Wise Weather distribution in Denver in 2017.</p>
+
+            <h3><li>Cities clusters by Snowy Weather</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/eda10.png')">
+                    <img src="assets/eda10.png" alt="eda10">
+                </div>
+            </div>
+            <p>The above Map in Tableau depicts clusters of the cities based on frequency of Snowy Weather. Cities in Blue cluster experienced Snowy Weather most times followed by Cities in Orange and Red Clusters.</p>
+
+        </ol>
     </div>
 </section>
 
