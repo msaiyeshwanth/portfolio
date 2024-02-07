@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 body {
-    /* font-family: 'Arial', sans-serif; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,6 +12,10 @@ body {
 
 * {
     font-family: 'Raleway', sans-serif;
+}
+
+section{
+    padding-top: 75px;
 }
 
 .container {
@@ -171,11 +174,6 @@ padding-top: 75px;
     margin-right: 10px;
 }
 
-/* .header {
-    background: linear-gradient(to right, #333, #555);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-} */
-
 .nav-links a {
     color: #fff;
     font-weight: bold;
@@ -189,19 +187,6 @@ padding-top: 75px;
     color: #fff;
     transform: scale(1.1);
 }
-
-/* .navbar {
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeInUp 0.5s ease-out forwards;
-} */
-
-/* @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-} */
 
 .dropdown-content {
     opacity: 0;
@@ -385,7 +370,8 @@ input[type="submit"]:hover {
 }
 
 .cleaning-image-container {
-    padding-left: 20px;
+    padding: 20px;
+    padding-left: 0px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -397,7 +383,7 @@ input[type="submit"]:hover {
     overflow: hidden;
     border-radius: 8px;
     cursor: pointer;
-    padding: 20px 10px;
+    padding: 0px 10px;
 }
 
 .thumbnail img {
@@ -445,10 +431,9 @@ input[type="submit"]:hover {
 .dropdown .dropdown-content .models-dropdown .dropdown-content {
     top: 0;
     left: 100%;
-    min-width: 160px; /* Adjust this value to control the width */
+    min-width: 160px; 
 }
 
-/* Additional styles to ensure it doesn't overlap with the main content */
 .navbar {
     position: relative;
     z-index: 1;
@@ -459,7 +444,7 @@ input[type="submit"]:hover {
     position: absolute;
     top: 0;
     left: 100%;
-    min-width: 160px; /* Adjust this value to control the width */
+    min-width: 160px; 
 }
 
 .dropdown .models-dropdown:hover .dropdown-content {
@@ -472,6 +457,30 @@ input[type="submit"]:hover {
 .caption{
     text-align: center;
     margin: 10px 10px 0px 10px;
+}
+
+.prevwork-section img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    max-width: 400px; 
+    max-height: 400px; 
+    object-fit: cover;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+  }
+
+  a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+codeanddata-section{
+    padding-top: 75px;
+    text-align: right;
 }
 
 @media screen and (max-width: 768px) {

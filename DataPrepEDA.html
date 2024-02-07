@@ -36,6 +36,7 @@
                                 </div>
                             </div>
                             <a href="conclusions.html">Conclusions</a>
+                            <a href="codeanddata.html">Code and Data</a>
                         </div>
                     </li>
                     <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
@@ -71,24 +72,82 @@
 
         <p>This rich dataset enables in-depth investigation and analysis, allowing the project to discover trends, anomalies, and insights into the dynamic nature of meteorological conditions. Furthermore, the project uses data from the OpenWeatherAPI to supplement the Kaggle dataset with real-time weather information, enabling for complete exploration of numerous weather occurrences and the development of effective machine learning models for weather prediction and insights.</p>
 
-        <h2>Source:</h2>
+        <h2>SOURCE:</h2>
         <ol>
-            <li><p><strong>Historical Hourly Weather Data (csv): </strong><a href="https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data/data" target="_blank">Kaggle Data</a></p></li>
             <li>
-                <p> <strong>API: </strong><a href="https://openweathermap.org/api" target="_blank">OpenWeatherAPI</a></p>
+                <p> <strong>API: </strong><a href="https://openweathermap.org/api" target="_blank">OpenWeatherMapAPI</a></p>
                 <p><strong>Endpoint: </strong><code>https://api.openweathermap.org/data/2.5/weather</code></p>
                 <p><strong>API Call Example: </strong><code>https://api.openweathermap.org/data/2.5/weather?q=Denver&appid={API key}</code></p>
             </li>
-
+            <li><p><strong>Historical Hourly Weather Data (csv): </strong><a href="https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data/data" target="_blank">Kaggle Data</a></p></li>
         </ol>
-        <h1>BEFORE CLEANING (Historical Hourly Weather Data): </h1>
         <div id="imageModal" class="modal" onclick="closeImageModal();">
             <div class="modal-content" onclick="event.stopPropagation();">
                 <span class="close" onclick="closeImageModal();">&times;</span>
                 <img id="expandedImage" src="" alt="Expanded Image">
             </div>
         </div>
-        
+        <h1>1. OpenWeatherMap API:</h1>
+
+        <h2>API Call:</h2>
+        <p>The step involved iterating through each city, creating a unique API request URL with the city name and API key, then issuing a GET request to retrieve the weather data. After a successful request (status code 200), relevant information such as humidity, pressure, temperature, weather description, wind speed, wind direction, latitude, and longitude was extracted from the JSON response.  The obtained data was then organised into a DataFrame, which represented the weather conditions in the specified cities. </p>
+        <div class="cleaning-image-container">
+            <div class="thumbnail" onclick="expandImage('assets/apicall.png')">
+                <img src="assets/apicall.png" alt="apicall">
+            </div>
+        </div>
+
+        <h2>BEFORE CLEANING (API Data): </h2>
+        <div class="cleaning-image-container">
+            <div class="thumbnail" onclick="expandImage('assets/apibc.png')">
+                <img src="assets/apibc.png" alt="apibc">
+            </div>
+        </div>
+
+        <h2>AFTER CLEANING (API Data):</h2>
+        <div class="cleaning-image-container">
+            <div class="thumbnail" onclick="expandImage('assets/apiac.png')">
+                <img src="assets/apiac.png" alt="apiac">
+            </div>
+        </div>
+
+        <h2>STEPS IN DATA PREPROCESSING:</h2>
+        <ol>
+            <h3><li>Parsing the JSON Data: </li></h3>
+            <p>This technique is used to access certain fields or elements within the JSON structure to acquire the relevant data points such as humidity, pressure, temperature, weather description, wind speed, wind direction, and geographic coordinates. </p>
+            <strong>After Parsing:</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercombining.png')">
+                    <img src="assets/aftercombining.png" alt="aftercombining">
+                </div>
+            </div>
+
+            <h3><li>Converting datetime to required format:</li></h3>
+            <p>This step converts the 'datetime' column in the DataFrame to the format 'YYYY-MM-DD HH:MM:SS', improving readability and compatibility with other data processing tasks.</p>
+            <strong>After converting datetime to required format:</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/apidt.png')">
+                    <img src="assets/apidt.png" alt="apidt">
+                </div>
+            </div>
+
+
+            <h3><li> Converting Temperature from Kelvin to Fahrenheit: </li></h3>
+            <p>The temperature column, initially in Kelvin, was converted to Fahrenheit for better interpretability.</p>
+            <strong>After Temperature conversion :</strong>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/apiktof.png')">
+                    <img src="assets/apiktof.png" alt="apiktof">
+                </div>
+            </div>
+
+        </ol>
+
+
+
+        <h1>2. Historical Hourly Weather Data (Kaggle)</h1>
+
+        <h2>BEFORE CLEANING (Historical Hourly Weather Data): </h2>
         <div class="cleaning-image-container">
             <div class="thumbnail" onclick="expandImage('assets/beforecleaning1.png')">
                 <img src="assets/beforecleaning1.png" alt="Before Cleaning 1">
@@ -109,13 +168,14 @@
                 <img src="assets/beforecleaning6.png" alt="Before Cleaning 6">
             </div>
         </div>
-        <h1>AFTER CLEANING:</h1>
+        <h2>AFTER CLEANING (Historical Hourly Weather Data): </h2>
         <div class="cleaning-image-container">
             <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
                 <img src="assets/aftercleaning.png" alt="aftercleaning">
             </div>
         </div>
-        <h1>STEPS IN DATA PREPROCESSING:</h1>
+
+        <h2>STEPS IN DATA PREPROCESSING:</h2>
         <ol>
             <h3><li>Merging the Kaggle Data:</li></h3>
             <p>Multiple datasets comprising weather-related information, such as humidity, pressure, temperature, weather description, wind speed, and wind direction, were first melted and then combined to make a single dataset. The melting technique converted the original wide-format data to a long-format, making it easier to merge based on shared columns. The records were then integrated based on the 'datetime' and 'City' columns, yielding a comprehensive dataset with consolidated meteorological information for numerous cities. Furthermore, a merge with a city dataset based on the 'City' column was undertaken to enhance the weather dataset with additional information such as each city's country, latitude, and longitude. This final combined dataset provides a comprehensive perspective of weather conditions in different cities and geographical areas.</p>
@@ -126,9 +186,9 @@
                 </div>
             </div>
 
-            <h3><li> Sampling the Data: </li></h3>
+            <h3><li> Sampling the Data and Dropping Country column: </li></h3>
             <p>The dataset initially had 1,629,108 rows and 11 columns. To aid analysis and management of the vast dataset, a sample centred on 2017 and particular to the United States was created, resulting in a significantly smaller set of 215,811 rows. The 'datetime' column was converted to datetime format, and the 'Country' column, which contained a consistent value for the United States, was later removed because it was no longer useful. This sampling and cleaning process enabled more efficient handling of the data for subsequent analysis, specifically targeting weather conditions in the United States during the year 2017.</p>
-            <strong>After Sampling:</strong>
+            <strong>After Sampling and dropping Country column:</strong>
             <div class="cleaning-image-container">
                 <div class="thumbnail" onclick="expandImage('assets/aftersampling.png')">
                     <img src="assets/aftersampling.png" alt="aftersampling">
@@ -170,7 +230,7 @@
 
             <h3><li> Converting Temperature from Kelvin to Fahrenheit: </li></h3>
             <p>The temperature column, initially in Kelvin, was converted to Fahrenheit for better interpretability.</p>
-            <strong>After Cleaning Missing Values :</strong>
+            <strong>After temperature conversion :</strong>
             <div class="cleaning-image-container">
                 <div class="thumbnail" onclick="expandImage('assets/ktof.png')">
                     <img src="assets/ktof.png" alt="ktof">

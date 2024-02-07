@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Motivation and Previous Work</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,6 +36,7 @@
                                 </div>
                             </div>
                             <a href="conclusions.html">Conclusions</a>
+                            <a href="codeanddata.html">Code and Data</a>
                         </div>
                     </li>
                     <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
@@ -46,8 +47,40 @@
 
   <section class="prevwork-section">
     <div class="container">
-        <p>Motivation and Previous Work</p>
-</section>
+        <img src="assets/motivation.webp" alt="motivation">
+        
+        <h1>MOTIVATION:</h1>
+        <p>
+            Weather, as a catalyst for numerous industries, has the capacity to affect economic stability, public health, and resource management, thus it is critical to use cutting-edge technologies to investigate its multifaceted nature.
+            Weather has an impact on all aspects of society, including individuals, industries, and governments. 
+            Farmers rely on precise forecasts for crop management, city planners anticipate major weather occurrences, and individuals adapt daily routines based on forecasts. 
+            Industries, governments, and communities as a whole get caught up in the unpredictability of weather events. 
+            This project recognises the universal impact of weather and strives to meet the different needs of those affected, encouraging a multifaceted approach to weather insights. 
+            Understanding the various stakeholders, from local communities to global entities, allows us to customise the project's outcomes to the specific challenges and opportunities that each group faces in the face of ever-changing weather patterns.
+        </p>
+
+
+        <h1>PREVIOUS WORK:</h1>
+
+        <ol>
+            <li>
+                <p>
+                     Md Saydur Rahman and his team's comparative assessment of weather forecasting utilizing machine learning models marks a significant stride in the discipline, showcasing the utilization of diverse algorithms to forecast precipitation and temperature trends in Dhaka across a span of two decades. The research underscores the potency of machine learning in refining weather prediction capabilities, meticulously analyzing metrics such as accuracy, precision, recall, and F1-scores. Through evaluating the effectiveness of various methodologies like Gradient Boosting, AdaBoosting, and Artificial Neural Network, the study offers valuable insights into enhancing the reliability and precision of weather prediction models. Additionally, the results furnish crucial guidance for grasping the intricate dynamics of weather phenomena and advancing meteorological investigations.
+                 </p>
+                 <a href="https://doi.org/10.48550/arXiv.2402.01206" target="_blank">Comparative Evaluation of Weather Forecasting using Machine Learning Models</a>
+            </li>
+
+            <li>
+                <p>
+                    In previous study by Jakaria, Hossain, and Rahman, weather forecasting approaches depended on complicated physics-based models, which required significant processing resources and frequently resulted in false forecasts due to an insufficient understanding of atmospheric processes. However, recent advances in machine learning (ML) offer potential options. By combining historical data from various weather stations, ML models provide faster and more accurate forecasts, especially in less resource-intensive computing environments. Weather prediction problems have been investigated using a variety of machine learning techniques, including linear regression, neural networks, support vector machines, and ensemble methods such as random forest. Furthermore, studies have looked into the benefits of using data from neighbouring places to increase forecast accuracy. These ideas are a break from standard methodologies, providing simpler yet more effective solutions for weather forecasting.
+                </p>
+                <a href="https://arxiv.org/pdf/2008.10789.pdf" target="_blank">Smart Weather Forecasting Using Machine Learning:
+                    A Case Study in Tennessee</a>
+            </li>
+
+        </ol>
+        
+    </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">
         <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
@@ -60,6 +93,11 @@
     </div>
 </div>     
 </div>
+<footer class="footer">
+    <div class="container">
+        <p>Thank you!</p>
+    </div>
+</footer>
     
     <script src="script.js"></script>
 </body>
