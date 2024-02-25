@@ -16,6 +16,7 @@ body {
 
 section{
     padding-top: 75px;
+    padding-bottom: 75px;
 }
 
 .container {
@@ -369,6 +370,10 @@ input[type="submit"]:hover {
     margin-bottom: 10px; 
 }
 
+ol>li{
+    margin-bottom: 10px; 
+}
+
 .cleaning-image-container {
     padding: 20px;
     padding-left: 0px;
@@ -402,12 +407,13 @@ input[type="submit"]:hover {
 }
 
 #imageModal .modal-content {
-    max-width: 60%;
+    max-width: 50%;
+    max-height: 90%;
 }
 
 #imageModal img {
-    width: 100%;
-    height: auto;
+    max-width: 95%;
+    max-height: 10%;
 }
 
 #imageModal .close {
@@ -478,9 +484,19 @@ input[type="submit"]:hover {
     font-weight: bold;
 }
 
-codeanddata-section{
-    padding-top: 75px;
-    text-align: right;
+.clustering-section li{
+    margin: 10px;
+}
+
+.clustering-overview-images{
+    max-width: 40%;
+    max-height: 30%; 
+
+    margin: 50px auto; 
+    display: block;
+}
+table{
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width: 768px) {
@@ -554,6 +570,13 @@ codeanddata-section{
     #imageModal .modal-content{
         min-width: 70%;
     }
+
+    .clustering-overview-images{
+        max-width: 90%;
+        max-height: 90%; 
+        margin: 50px auto; 
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 576px) {
@@ -618,6 +641,13 @@ codeanddata-section{
     }
     #imageModal .modal-content{
         min-width: 90%;
+    }
+
+    .clustering-overview-images{
+        max-width: 90%;
+        max-height: 90%; 
+        margin: 50px auto; 
+        display: block;
     }
 }
 

@@ -47,7 +47,250 @@
 
   <section class="arm-section">
     <div class="container">
-        <p>ARM</p>
+        <div id="imageModal" class="modal" onclick="closeImageModal();">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeImageModal();">&times;</span>
+                <img id="expandedImage" src="" alt="Expanded Image">
+            </div>
+        </div>
+        <h1 style="text-align: center; margin-bottom: 25px;">ASSOCIATION RULE MINING</h1>
+        <h1>OVERVIEW:</h1>
+        <p>
+            Association rule mining (ARM) is a unsupervised Machine Learning technique used to discover interesting relationships, patterns, or associations among variables in large datasets. 
+        </p>
+        <img src="assets/arm1.png" alt="arm1" class="clustering-overview-images">
+
+        <p>
+            ARM is often applied to transactional datasets, such as market basket data, where each transaction consists of a set of items.
+        </p>
+        <img src="assets/armdtypes.png" alt="armdtypes" class="clustering-overview-images">
+        <p>The above image represents Transaction Data in Basket (left), Single (center), and Matrix (right) formats.</p>
+
+        <h3>Measures in ARM:</h3>
+        <ol>
+            <h3><li>Support:</li></h3>
+            <p>It measures how frequent an itemset is present in all the transactions. High support indicates that the itemset occurs frequently in the dataset.</p>
+            <img src="assets/supp.png" alt="support" class="clustering-overview-images">
+
+            <h3>
+                <li> Confidence:</li>
+            </h3>
+            <p>
+                It measures how often items in X and items in Y occur together relative to transactions that contain X.
+            </p>
+            <img src="assets/conf.png" alt="Confidence" class="clustering-overview-images">
+
+            <h3><li>Lift:</li></h3>
+            <p>
+                Lift is a measure of how much more likely items in Y  is to occur when the items in X is present, compared to when it is absent. It is the ratio of the confidence of the rule, to the frequency of the items in Y in the whole dataset.
+            </p>
+            <img src="assets/lift.png" alt="lift" class="clustering-overview-images">
+        </ol>
+        
+        <h3>Association Rules:</h3>
+        <p>Association rules are logical implications that describe relationships between sets of items in the dataset. They are typically represented in the form of "if-then" statements, where the antecedent (X) implies the consequent (Y).</p>
+        <p><strong>Example:</strong> {X} => {Y} </p>
+        <p>If an item X is purchased, then item Y is likely to be purchased.</p>
+
+
+        <h3>Apriori Algorithm:</h3>
+        <p>
+            The Apriori algorithm is a classic algorithm for association rule mining. It's specifically designed to extract frequent itemsets and generate association rules from transactional databases. 
+        </p>
+        <p>
+            <strong>Steps:</strong>
+            <ol>
+                <h3>
+                    <li>Generating Frequent Itemsets:</li>
+                </h3>
+                <ol>
+                    <li>
+                        <strong>Initialization: </strong>Start by identifying all unique items in the dataset.
+                    </li>
+                    <li>
+                       <strong>Support calculation:</strong> Scan the dataset to count the support (frequency of occurrence) of each individual item. Items with support above a predefined minimum support threshold are considered frequent 1-itemsets.
+                    </li>
+                    <li>
+                        <strong>Joining:</strong> Proceed iteratively to generate larger itemsets. In each iteration, join pairs of frequent (k-1)-itemsets to form candidate k-itemsets.
+                    </li>
+                    <li>
+                        <strong>Pruning:</strong> Prune candidate itemsets that contain subsets which are infrequent. This pruning step is possible due to the Apriori property, which states that if an itemset is infrequent, all its supersets must also be infrequent.
+                    </li>
+                </ol>
+                Repeat steps 3 and 4 until no new frequent itemsets can be generated.
+
+                <h3>
+                    <li>Generating Association Rules:</li>
+                </h3>
+                <ol>
+                    <li>
+                        <strong>Rule Generation:</strong> For each frequent itemset, generate association rules by considering all possible combinations of items as antecedents and consequents.
+                    </li>
+                    <li>
+                        <strong>Rule Evaluation:</strong> Calculate teh measures such as confidence and support for each rule.
+                    </li>
+                    <li>
+                        <strong>Pruning: </strong>  Discard rules that do not meet a minimum threshold measure.
+                    </li>
+                </ol>
+            </ol>
+        </p>
+        <img src="assets/apriori.png" alt="apriori" class="clustering-overview-images">
+
+        <h1>PLAN</h1>
+        <p>
+            <ol>
+                <li>
+                    Firstly, unlabelled transaction data with City and Weather details is required to generate association rules between cities and weather types.
+                </li>
+                <li>
+                    Next step is to read the unlabelled transaction data with city and weather and generate association rules with minimum support and confidence threshold values.
+                </li>
+                <li>
+                    Finally sort the rules and identify the top 15 rules by Support, Confidence and Lift.
+                </li>
+                <li>
+                    Also lets check top cities associated with snowy weather.
+                </li>
+            </ol>
+        </p>
+
+        <h1>DATA PREPARATION</h1>
+        <p>
+            Association Rule Mining typically operate on unlabelled transaction data.
+        </p>
+        <ol>
+            <h3><li>Before Transformation:</li></h3> 
+            <p>
+                The below image shows the sample of data before transformation.
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
+                    <img src="assets/aftercleaning.png" alt="aftercleaning">
+                </div>
+            </div>
+            
+            <h3><li>After Transformation:</li></h3>
+            <p>The below image shows the data after transformation into transaction data (Basket) and after removing label. It shows city and its hourly weather type in 2017.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/transactiondata.png')">
+                    <img src="assets/transactiondata.png" alt="transactiondata">
+                </div>
+            </div>
+
+            <h3><li>Transaction Dataset (Basket):</li></h3>
+            <p><a href="https://drive.google.com/file/d/1_YxR9FCtm84YrjWALnJmM2Y2W81XppxN/view?usp=sharing" target="_blank">transactiondata.csv</a></p>
+        </ol>
+
+        <h1>CODE</h1>
+        <ol>
+            <h3><li>ARM (R):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/ARM.ipynb" target="_blank">ARM.ipynb</a></p>
+        </ol>
+
+        <h1>THRESHOLDS</h1>
+        <ol>
+            <h3><li>Minimum Support:</li></h3>
+            <p>
+                Minumum Support for generating Top 15 rules overall and Top 5 rules for Snowy Weather is 0.0001. Low threshold value is due to 213435 transactions and each city has around 7000 transactions which is comparatively very less.
+            </p>
+            <h3><li>Minimum Confidence:</li></h3>
+            <p>
+                Minimum confidence for generating Top 15 rules overall is 0.1 and for generating Top 5 rules for Snowy weather is 0.01 due to comparatively less transactions containing snowy weather.
+            </p>
+        </ol>
+
+        <h1>RESULTS</h1>
+        <ol>
+            <h3><li>Top 10 Frequent items:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/10freq.png')">
+                    <img src="assets/10freq.png" alt="10freq">
+                </div>
+            </div>
+            <p>
+                The above image displays Top 10 frequent items from the transaction data containing city and weather details.
+            </p>
+
+            <h3><li>Top 15 Rules by Support:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/top15sup.png')">
+                    <img src="assets/top15sup.png" alt="top15sup">
+                </div>
+            </div>
+            <p>
+                The above image displays Top 15 rules by Support generated from the transaction data using Apriori Algorithm. 
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/netsup.png')">
+                    <img src="assets/netsup.png" alt="netsup">
+                </div>
+            </div>
+            <p>
+                The above interactive network diagram depicts Top 15 rules by Support. Size indicates Support. Higher the size of node in the network higher its Support is and similarly color indicates Confidence.
+            </p>
+
+            <h3><li>Top 15 Rules by Confidence:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/top15conf.png')">
+                    <img src="assets/top15conf.png" alt="top15conf">
+                </div>
+            </div>
+            <p>
+                The above image displays Top 15 rules by Confidence generated from the transaction data using Apriori Algorithm. 
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/netconf.png')">
+                    <img src="assets/netconf.png" alt="netconf">
+                </div>
+            </div>
+            <p>
+                The above interactive network diagram depicts Top 15 rules by Confidence. Size indicates Support. Higher the size of node in the network higher its Support is and similarly color indicates Confidence.
+            </p>
+
+            <h3><li>Top 15 Rules by Lift:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/top15lift.png')">
+                    <img src="assets/top15lift.png" alt="top15lift">
+                </div>
+            </div>
+            <p>
+                The above image displays Top 15 rules by Lift generated from the transaction data using Apriori Algorithm. 
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/netlift.png')">
+                    <img src="assets/netlift.png" alt="netlift">
+                </div>
+            </div>
+            <p>
+                The above interactive network diagram depicts Top 15 rules by Lift. Size indicates Support. Higher the size of node in the network higher its Support is and similarly color indicates Confidence.
+            </p>
+
+            <h3><li>Top 5 Rules for Snowy Weather by Confidence:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/top5snow.png')">
+                    <img src="assets/top5snow.png" alt="top5snow">
+                </div>
+            </div>
+            <p>
+                The above image displays Top 5 rules for Snowy Weather by confidence generated from the transaction data using Apriori Algorithm. 
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/netsnow.png')">
+                    <img src="assets/netsnow.png" alt="netsnow">
+                </div>
+            </div>
+            <p>
+                The above interactive network diagram depicts Top 5 rules for Snowy Weather by confidence. Size indicates Support. Higher the size of node in the network higher its Support is and similarly color indicates Confidence.
+            </p>
+
+        </ol>
+
+        <h1>CONCLUSION</h1>
+        <p>
+            The exploration of city-to-weather associations uncovers profound insights into how various urban landscapes are influenced by weather dynamics. Through this investigation, distinct patterns associating specific cities with particular weather profiles are unveiled, revealing the unique climatic identities of each location. This comprehension deepens the understanding of how weather profoundly impacts urban life, shaping daily routines and informing long-range urban planning strategies. Furthermore, understanding the intricate city-weather associations provides insight into both the obstacles and potential for urban growth. Armed with this knowledge, urban planners and politicians can proactively protect cities against negative weather impacts while capitalising on favourable conditions to improve quality of life and sustainability. Finally, the investigation emphasises the dynamic interaction between urban surroundings and natural factors, establishing the framework for resilient, adaptable cities that can thrive in the face of changing climate realities.
+        </p>
+    </div>
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">

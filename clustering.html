@@ -47,25 +47,405 @@
 
   <section class="clustering-section">
     <div class="container">
-        <p>clustering</p>
+        <div id="imageModal" class="modal" onclick="closeImageModal();">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeImageModal();">&times;</span>
+                <img id="expandedImage" src="" alt="Expanded Image">
+            </div>
+        </div>
+        <h1 style="text-align: center; margin-bottom: 25px;">CLUSTERING</h1>
+        <h1>OVERVIEW:</h1>
+        <p>
+            Clustering is an unsupervised Machine Learning technique. It is used to group unlabelled data or data points such that similar data points will be in same cluster.
+        </p>
+
+        <img src="assets/clusteringoverview.webp" alt="clusteringoverview" class="clustering-overview-images">
+
+        <h3>Goal:</h3>
+        <p>
+            <ol>
+                <li>Maximize the Inter Cluster Distances</li>
+                <li>Minimize the Intra Cluster Distances</li>
+            </ol>
+        </p>
+
+        <h3>Types of Clustering:</h3>
+        <p>
+            <ol>
+                <strong><li>Partitional Clustering:</li></strong>
+                <p>
+                    It divides the data points into non-overlapping groups. Every cluster must have atleast one data point.
+
+                    <img src="assets/partitional.png" alt="partitional" class="clustering-overview-images">
+
+                </p>
+                <p>
+                    <strong>Examples:</strong> K-Means, K-Medoids, CLARANS.
+                </p>
+
+                <h3><li>Hierarchical Clustering:</li></h3>
+                <p>
+                    It determines the cluster assigments by building a hierarchy. There are two approaches:
+
+                    <img src="assets/hierarchical.png" alt="hierarchical" class="clustering-overview-images">
+
+                    <ol>
+                        <li><strong>Agglomerative:</strong></li>
+                        <p>
+                            It is a Bottom up approach. In this approach, initially each data point is considered as an individual cluster. At each iteration, the similar clusters merge with other clusters until one cluster or K clusters are formed.
+                        </p>
+                        <p>
+                            <strong>Example:</strong> AGNES (Agglomerative Nesting).
+                        </p>
+
+                        <li><strong>Divisive:</strong></li>
+                        <p>
+                            It is a Top down approach. In this approach, initially all the data points are considered as a single cluster and in each iteration, we separate the data points from the cluster which are not similar. Each data point which is separated is considered as an individual cluster. In the end there will be n clusters. 
+                        </p>
+                        <p>
+                            <strong>Example:</strong> DIANA (Divisive Analysis).
+                        </p>
+                    </ol>
+                </p>
+                <p>
+                    <strong>Examples:</strong> BIRCH (Balanced Iterative Reducing and Clustering using Hierarchies), ROCK (Robust Clustering), CHAMELON, etc.
+                </p>
+
+                <h3><li>Density based Clustering:</li></h3>
+                <p>
+                    It determines cluster assigments based on the density of data points in a region. No need to specify number of clusters for this method. It is efficient when clusters are irregular and contains noise and outliers.
+                    <img src="assets/densitybased.jpeg" alt="densitybased" class="clustering-overview-images">
+                </p>
+                <p>
+                    <strong>Example:</strong> DBSCAN (Density Based Spacial Clustering of Applications with Noise)
+                </p>
+            </ol>
+        </p>
+
+        <h3>Partitional Vs. Hierarchical Clustering:</h3>
+
+        <img src="assets/hvspclust.png" alt="hvspclust" class="clustering-overview-images">
+
+        <table border="1" cellspacing="0" cellpadding="8">
+        <tr>
+            <th>Aspect</th>
+            <th>Partitional Clustering</th>
+            <th>Hierarchical Clustering</th>
+        </tr>
+        <tr>
+            <td>Running Time</td>
+            <td>Typically faster, especially for large datasets</td>
+            <td>Generally slower, especially for large datasets</td>
+        </tr>
+        <tr>
+            <td>Input Parameters</td>
+            <td>Requires the number of clusters and initial cluster centers</td>
+            <td>Requires only a similarity measure</td>
+        </tr>
+        <tr>
+            <td>Resultant Clusters</td>
+            <td>Produces exactly k non-overlapping clusters</td>
+            <td>Produces a hierarchical structure of clusters</td>
+        </tr>
+        <tr>
+            <td>Interpretation</td>
+            <td>Provides a clear-cut division of clusters</td>
+            <td>Provides a meaningful and subjective division of clusters</td>
+        </tr>
+        <tr>
+            <td>Flexibility</td>
+            <td>Less flexible as the number of clusters needs to be determined beforehand</td>
+            <td>More flexible as it doesn't require specifying the number of clusters in advance</td>
+        </tr>
+        <tr>
+            <td>Scalability</td>
+            <td>More scalable for large datasets due to its partitioning approach</td>
+            <td>Less scalable for large datasets due to its hierarchical nature</td>
+        </tr>
+        <tr>
+            <td>Handling of Outliers</td>
+            <td>Sensitive to outliers, especially in partitional methods</td>
+            <td>Robust to outliers as it considers the entire dataset</td>
+        </tr>
+        <tr>
+            <td>Complexity</td>
+            <td>Non-hierarchical structure is simpler and easier to interpret</td>
+            <td>Hierarchical structure can be complex and harder to interpret</td>
+        </tr>
+        <tr>
+            <td>Application Suitability</td>
+            <td>Suitable for datasets with a predetermined number of clusters</td>
+            <td>Suitable for datasets with unknown or variable cluster numbers</td>
+        </tr>
+        </table>
+
+        <h3>Distance methods Used:</h3>
+        <img src="assets/distances.jpg" alt="distances" class="clustering-overview-images">
+        <ol>
+            <h3><li>Eucledian Distance:</li></h3>
+            <p>
+                Euclidean distance between two points in Euclidean space is the length of the line segment between them. It is Minkowski distance with p=2.It is used in KMeans (sklearn) by default.
+                <img src="assets/eucledian.png" alt="eucledian" class="clustering-overview-images">
+            </p>
+
+            <h3><li>Cosine Similarity:</li></h3>
+            <p>
+                Cosine similarity quantifies the similarity between two non-zero vectors in an inner product space. It's computed as the cosine of the angle between the vectors, which is essentially the dot product of the vectors divided by the product of their lengths.
+                <img src="assets/cosinesim.png" alt="cosine" class="clustering-overview-images">
+            </p>
+        </ol>
+
+        <h3>Linkage Method Used in Hierarchical Clustering:</h3>
+        <ol>
+            <li>
+                <strong>Ward's Method:</strong>
+                <p>
+                    It is also known as Ward's minimum variance method, is a hierarchical clustering algorithm that aims to minimize the variance when merging clusters. It operates by evaluating the increase in variance that would result from merging two clusters at each step of the clustering process. The clusters with the smallest increase in variance are merged together.
+                </p>
+            </li>
+        </ol>
+        <img src="assets/linkages.jpg" alt="linkages" class="clustering-overview-images">
+        
+        <h3>Dendrogram:</h3>
+        <p>A dendrogram is a tree-like diagram commonly used in hierarchical clustering to illustrate the arrangement of the clusters formed during the clustering process. It visually represents the merging of clusters as the algorithm progresses from individual data points to a single cluster containing all data points. In a Dendrogram: </p>
+        <p>
+            <ol>
+                <li>
+                    Each leaf node represents an individual data point.
+                </li>
+                <li>
+                    The height of the horizontal lines connecting nodes represents the distance or dissimilarity between clusters or data points.
+                </li>
+                <li>
+                    The points where the lines are joined represent the merging of clusters.
+                </li>
+                <li>
+                    The vertical axis typically represents the distance or dissimilarity between clusters.
+                </li>
+                <li>
+                    The horizontal axis doesn't have a specific meaning and is often used just for visualization purposes.
+                </li>
+            </ol>
+            <img src="assets/dend.png" alt="dend" class="clustering-overview-images">
+        </p>
+
+        <h1>PLAN</h1>
+        <ol>
+            <li>
+                <p>
+                    Firstly, city wise snowy weather data is required to cluster the cities by most snowy weather.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Normalize the features and then apply dimensionality reduction technique like PCA (Principal Component Analysis)
+                </p>
+            </li>
+            <li>
+                <p>
+                    Applying K-Means clustering with Eucledian Distance and Hierarchical Clustering with Cosine Similarity.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Applying Elbow method and Silhouette method to determine optimal number of clusters
+                </p>
+            </li>
+            <li>
+                <p>
+                    Analyze the resulting clusters to identify groups of cities with similar snowy weather patterns.
+                </p>
+            </li>
+        </ol>
+
+
+        <h1>DATA PREPARATION</h1>
+        <p>
+            Clustering algorithms typically operate on quantitative data (numerical) and unlabelled data i.e, there's no need for predefined categories or classes. They group data points based on their similarity or distance in a multidimensional space defined by the features.
+        </p>
+        <ol>
+            <h3><li>Before Transformation:</li></h3>
+            <p>
+                The below image shows the sample of data before transformation.
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
+                    <img src="assets/aftercleaning.png" alt="aftercleaning">
+                </div>
+            </div>
+            
+            <h3><li>After Transformation:</li></h3>
+            <p>The below image shows the data after transformation by calculating most days of snowy weather.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftertransclust.png')">
+                    <img src="assets/aftertransclust.png" alt="aftertransclust">
+                </div>
+            </div>
+
+            <h3><li>Principal Component Analysis:</li></h3>
+            <p>The below image shows the sample of data after applying Principal Component Analysis with 3 components.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/afterpcaclust.png')">
+                    <img src="assets/afterpcaclust.png" alt="afterpcaclust">
+                </div>
+            </div>
+
+            <h3><li>Filtering Quantitative Data:</li></h3>
+            <p>The below image shows the sample of quantitative and unlabelled data for clustering.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clustdata.png')">
+                    <img src="assets/clustdata.png" alt="clustdata">
+                </div>
+            </div>
+
+            <h3><li>Clustering Dataset:</li></h3>
+            <p><a href="https://drive.google.com/file/d/1jCmk_1Gp38oqVtZxTfMEPuVOLktQ9c63/view?usp=drive_link" target="_blank">clusteringdata.csv</a></p>
+
+        </ol>
+
+        <h1>CODE</h1>
+        <ol>
+            <h3><li>K-Means Clustering (Python):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/KMeans.ipynb" target="_blank">KMeans.ipynb</a></p>
+            <h3><li>Hierarchical Clustering (R):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/Hierarchical.ipynb" target="_blank">Hierarchical.ipynb</a></p>
+        </ol>
+
+        <h1>RESULTS</h1>
+
+        <ol>
+            <h3><li>K-Means with Eucledian Distance:</li></h3>
+            <ol>
+                <strong><li>Elbow Method:</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/elbowmethod.png')">
+                        <img src="assets/elbowmethod.png" alt="elbowmethod">
+                    </div>
+                </div>
+                <p>Above Elbow curve represents Inertia (WCSS) values for different number of clusters. If the Inertia value is high, then the data points in the cluster are far or not similar i.e, intra cluster distance is more. From the above Elbow curve, the Elbow point is at k = 5. From Elbow point K, the rate of decrease of inertia or WCSS will not change significantly with increase in K. Therefore, optimal number of clusters using Elbow method is 5.</p>
+
+                <strong><li>Silhouette Method:</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/silkmeans.png')">
+                        <img src="assets/silkmeans.png" alt="silkmeans">
+                    </div>
+                </div>
+                <p>The above plot represents Silhouette scores for different number of clusters. If the Silouette score is high, then the data points are closer to their cluster than they are to the other clusters. From the above plot, Silhouette Score is maximum for k = 5 followed by k = 6 and 8.</p>
+
+                <strong><li>Clustering cities by Snowy weather (5 Clusters)</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/kmeans5.png')">
+                        <img src="assets/kmeans5.png" alt="kmeans5">
+                    </div>
+                </div>
+                <p>The above 3D scatter plot depicts clusters of cities by snowy weather for optimal number of clusters (K = 5). The clusters are well seperated in this.</p>
+
+                <strong><li>Clustering cities by Snowy weather (6 Clusters)</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/kmeans6.png')">
+                        <img src="assets/kmeans6.png" alt="kmeans6">
+                    </div>
+                </div>
+                <p>The above 3D Scatter plot depicts 6 clusters of cities by snowy weather. In this there is one cluster with only one city. So, k = 5 is optimal number of clusters.</p>
+
+                <strong><li>Clustering cities by Snowy weather (8 Clusters)</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/kmeans8.png')">
+                        <img src="assets/kmeans8.png" alt="kmeans8">
+                    </div>
+                </div>
+                <p>The above 3D Scatter plot depicts 8 clusters of cities by snowy weather. In this also there is one cluster with only one city. So, k = 5 is optimal number of clusters.</p>
+
+                <strong><li>Clustering cities by Snowy weather (4 Clusters)</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/kmeans4.png')">
+                        <img src="assets/kmeans4.png" alt="kmeans4">
+                    </div>
+                </div>
+                <p>The above 3D Scatter plot depicts 4 clusters of cities by snowy weather. In this the inter cluster distance is less and intra cluster distance is more. So, k = 5 is optimal number of clusters.</p>
+
+                <strong><li>Interactive Map with 5 Clusters by Snowy Weather</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/interactivemapk5.png')">
+                        <img src="assets/interactivemapk5.png" alt="interactivemapk5">
+                    </div>
+                </div>
+                <p>The above Interactive Map depicts 5 clusters of cities by snowy weather which upon hovering shows different weather features of the city.</p>
+
+                <strong><li>Cities in different Clusters: </li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/citiesk5.png')">
+                        <img src="assets/citiesk5.png" alt="citiesk5">
+                    </div>
+                </div>
+                <p>The above image shows the list of cities in different clusters.</p>
+            </ol>
+
+            <h3><li>Hierarchical Clustering with Ward.D method:</li></h3>
+            <ol>
+                <strong><li>Hierarchical Clustering with Cosine Similarity - Silhouette Method:</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/hsilcs.png')">
+                        <img src="assets/hsilcs.png" alt="hsilcs">
+                    </div>
+                </div>
+                <p>From the above Silhouette method plot, the optimal number of clusters is k = 3 for Cosine Similarity.</p>
+
+                <strong><li>Hierarchical Clustering with Cosine Similarity - Dendrogram (3 Clusters):</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/dendcs.png')">
+                        <img src="assets/dendcs.png" alt="dendcs">
+                    </div>
+                </div>
+                <p>The above Dendrogram depicts 3 clusters of cities by snowy weather using cosine similarity as similarity measure.</p>
+
+                <strong><li>Hierarchical Clustering with Eucledian Distance - Silhouette Method:</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/hsiled.png')">
+                        <img src="assets/hsiled.png" alt="hsiled">
+                    </div>
+                </div>
+                <p>From the above Silhouette method plot, the optimal number of clusters is k = 5 for Eucledian Distance.</p>
+
+                <strong><li>Hierarchical Clustering with Eucledian Distance - Dendrogram (5 Clusters):</li></strong>
+                <div class="cleaning-image-container">
+                    <div class="thumbnail" onclick="expandImage('assets/dended.png')">
+                        <img src="assets/dended.png" alt="dended">
+                    </div>
+                </div>
+                <p>The above Dendrogram depicts 5 clusters of cities by snowy weather using Euclidean distance as similarity measure.</p>
+            </ol>
+
+            <h3><li>K-Means vs Hierarchical clustering</li></h3>
+            <p>From the above results, it is evident that K-Means and Hierarchical clustering with Eucledian distance gave same results and has optimal number of clusters k = 5. But, Hierarchical Clustering with Cosine Similarity has optimal number of clusters k = 3 and gave different results.</p>
+        </ol>
+        
+        <h1>CONCLUSION</h1>
+        <p>
+            The clustering of cities based on their snowy weather patterns provides valuable insights into the diverse winter climates observed across different regions. Grouping cities with similar snowfall characteristics allows for the identification of distinct patterns and trends in snowfall occurrence. For instance, cities clustered together may share similarities in the frequency, duration, and intensity of snowfall events, along with their impacts on daily life and infrastructure. This detailed understanding enables meteorologists and climatologists to improve the accuracy of weather predictions and warnings for affected areas by considering localized snowfall behaviors. 
+            Furthermore, the clustering method reveals the complex linkages between geographical features, meteorological conditions, and urban contexts that influence snowy weather patterns. Cities located in regions with similar topography, proximity to bodies of water, or latitude may exhibit similar snowfall patterns due to shared climatic effects. Understanding these underlying elements enables the development of more targeted and localised snow-management measures, such as snow removal operations, road maintenance protocols, and emergency response plans. Cities can optimise resource allocation, improve preparedness efforts, and reduce disruptions caused by winter weather disasters by adapting actions to the unique features of each clustered group.
+        </p>
+    </div>
+
 </section>
-<div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
-    <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
-        <h2>Contact Me</h2>
-        <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
-            <input type="submit" value="Send">
-        </form>
+
+    <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
+            <h2>Contact Me</h2>
+            <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>     
     </div>
-</div>     
-</div>
-<footer class="footer">
-    <div class="container">
-        <p>Thank you!</p>
-    </div>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <p>Thank you!</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
