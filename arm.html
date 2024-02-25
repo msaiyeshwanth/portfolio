@@ -67,30 +67,64 @@
         <p>The above image represents Transaction Data in Basket (left), Single (center), and Matrix (right) formats.</p>
 
         <h3>Measures in ARM:</h3>
+        <p>Let A and B are sets and assume association rule A => B.</p>
         <ol>
             <h3><li>Support:</li></h3>
-            <p>It measures how frequent an itemset is present in all the transactions. High support indicates that the itemset occurs frequently in the dataset.</p>
+            <p>It measures how often an item in A and an item in B occur together relative to all the transactions.</p>
             <img src="assets/supp.png" alt="support" class="clustering-overview-images">
 
             <h3>
                 <li> Confidence:</li>
             </h3>
             <p>
-                It measures how often items in X and items in Y occur together relative to transactions that contain X.
+                It measures how often an item in A and an item in B occur together relative to transactions that contain A.
             </p>
             <img src="assets/conf.png" alt="Confidence" class="clustering-overview-images">
+            <p>
+                From the above, Confidence <span>&#8805;</span> Support.
+            </p>
 
             <h3><li>Lift:</li></h3>
             <p>
                 Lift is a measure of how much more likely items in Y  is to occur when the items in X is present, compared to when it is absent. It is the ratio of the confidence of the rule, to the frequency of the items in Y in the whole dataset.
             </p>
             <img src="assets/lift.png" alt="lift" class="clustering-overview-images">
+            <p>
+                From the above, Lift <span>&#8805;</span> Confidence.
+            </p>
+            <ol>
+                <li>
+                    <p>
+                        If Lift (A, B) =  1 then P(A, B) = P(A).P(B)
+                        i.e, if Lift is 1, then A and B are Independent. 
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        If Lift (A, B) &lt; 1 then P(A, B) &lt; P(A).P(B)
+                        i.e, if Lift is less than 1, then A and B are negatively correlated. 
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        If Lift (A, B) &gt; 1 then P(A, B) &gt; P(A).P(B)
+                        i.e, if Lift is greater than 1, then A and B are positively correlated. 
+                    </p>
+                </li>
+            </ol>
+            <p>
+                Since we are looking for associations, we will consider only rules with Lift &gt; 1.
+            </p>
+
+            
         </ol>
         
         <h3>Association Rules:</h3>
-        <p>Association rules are logical implications that describe relationships between sets of items in the dataset. They are typically represented in the form of "if-then" statements, where the antecedent (X) implies the consequent (Y).</p>
-        <p><strong>Example:</strong> {X} => {Y} </p>
-        <p>If an item X is purchased, then item Y is likely to be purchased.</p>
+        <p>Association rules are logical implications that describe relationships between sets of items in the dataset. They are typically represented in the form of "if-then" statements, where the antecedent (A) implies the consequent (B).</p>
+        <p><strong>Example:</strong> A => B </p>
+        <p>If an item A is purchased, then item B is likely to be purchased.</p>
 
 
         <h3>Apriori Algorithm:</h3>
