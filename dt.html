@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decision Tree</title>
+    <title>Decision Trees</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -47,7 +47,104 @@
 
   <section class="dt-section">
     <div class="container">
-        <p>clustering</p>
+        <div id="imageModal" class="modal" onclick="closeImageModal();">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeImageModal();">&times;</span>
+                <img id="expandedImage" src="" alt="Expanded Image">
+            </div>
+        </div>
+        <h1 style="text-align: center; margin-bottom: 25px;">DECISION TREES</h1>
+        <h1>OVERVIEW:</h1>
+        <p>
+            Decision Trees are a popular supervised learning algorithm used for both classification and regression tasks in machine learning. They recursively partition the feature space into smaller regions based on feature values, ultimately resulting in a tree-like structure.
+        </p>
+        <img src="assets/dt1.png" alt="dt1" class="clustering-overview-images">
+
+        <p>
+            The tree has:
+            <ol>
+                <li>
+                    <strong>Root Node: </strong> No incoming edges and zero or more outgoing edges. It contains attribute test condition(s). It is an impure node.
+                </li>
+                <li>
+                    <strong>Internal Node: </strong> Exactly ONE incoming edge and TWO or more outgoing. It contains attribute test condition(s). It is an impure node.
+                </li>
+                <li>
+                    <strong>Leaf/Terminal Node: </strong>  ONE incoming, no outgoing. Each leaf node is assigned a class label. It is a pure node i.e, no impurity.
+                </li>
+            </ol>
+        </p>
+        <img src="assets/dt2.png" alt="dt2" class="clustering-overview-images">
+
+        <h3>Building Decision Trees:</h3>
+        <p>
+            There are an infinite number of possible decision trees that can be constructed from a set of features as we can start with any feature as the root node.
+        </p>
+        <img src="assets/dt3.png" alt="dt3" class="clustering-overview-images">
+        <p>
+            Finding the optimal tree is an intractable problem as the search space is exponential. Algorithms can find “good” decision trees using the Greedy Top-Down approach they make a series of locally optimal decisions.
+        </p>
+        <p>
+            <strong>Example:</strong> Hunt's Algorithm
+        </p>
+        <p>
+            Hunt's is the basis of ID3, C4.5, and CART
+        </p>
+
+        <h3>Metrics Used in Decision Tree Splitting:</h3>
+        <p>
+            The below metrics provide a quantitative measure of impurity or uncertainty within a dataset. This impurity reflects the degree of disorder in the data, with higher values indicating greater disorder. These metrics help determine the optimal feature and split point for partitioning the data at each node of the decision tree. By evaluating the impurity reduction achieved by different splits, decision trees can recursively create partitions that result in more homogeneous subsets of data.
+        </p>
+        <ol>
+            <h3><li>Gini Index:</li></h3>
+            <p>
+                It measures the probability for a random instance being misclassified when choosen randomly. It ranges from 0 (pure node) to 0.5 (maximum impurity).
+            </p>
+            <img src="assets/gini.png" alt="gini" class="clustering-overview-images">
+
+            <h3><li>Entropy:</li></h3>
+            <p>
+                It measures the uncertainity or impurity in a node. It is calculated using the probability distribution of the classes in the node. Entropy ranges from 0 (pure node) to 1 (maximum impurity).
+            </p>
+            <img src="assets/entropy.png" alt="entropy" class="clustering-overview-images">
+
+            <h3><li>Information Gain:</li></h3>
+            <p>
+                It is used to determine the strength of a partition i.e., to compare purity of parent node (before split) to child nodes (after split). Mathematically it is measure of the difference between impurity values before splitting the data at a node and the weighted average of the impurity after the split.The greater the difference – the better the partition condition.
+            </p>
+            <p>
+                The Gain (∆) is a measure for goodness of split.
+            </p>
+            <img src="assets/infogain.png" alt="infogain" class="clustering-overview-images">
+            <p>
+                where,
+            </p>
+            <p>
+                I is the impurity measure of a node (such as GINI or Entropy)
+            </p>
+            <p>
+                N is the number of records/vectors/rows at parent node
+            </p>
+            <p>
+                k is the number of attribute values (variable options)
+            </p>
+            <p>
+                N(vj) is the number of records in child vj.
+            </p>
+
+            <p>
+                Depending on which impurity measurement is used, tree classification results can vary. There is no one preferred approach by different Decision Tree algorithms.
+            </p>
+            <p>
+                <strong>Example:</strong> CART uses Gini; ID3 and C4.5 use Entropy.
+            </p>
+        </ol>
+        <p>
+            <strong>Calculation:</strong>
+            <img src="assets/dtexample.png" alt="dtexample" class="clustering-overview-images">
+        </p>
+
+    </div>
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">
