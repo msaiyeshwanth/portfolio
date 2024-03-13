@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Sai Yeshwanth Mekala's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
+    <div class="header">
         <div class="container">
             <nav class="navbar">
                 <div class="nav-toggle" id="navToggle">
@@ -43,43 +43,125 @@
                 </ul>
             </nav>
         </div>
-    </header>
-
-  <section class="homesection">
-    <div class="container">
-        <!-- <p class="animate-text"><h1>Welcome to my portfolio😊</h1></p> -->
-        <p class="animate-text"><h2>Name: Sai Yeshwanth Mekala</h2></p>
-        <p class="animate-text"><strong>Title: </strong>Data Science Graduate Student @ CU Boulder | Ex - TCS</p>
-        <p class="animate-text"><strong>Interests:</strong> Machine Learning, Big Data Analytics</p>
-        <p class="animate-text"><strong>Hobbies: </strong>Movies, Cricket and Music</p>
-        <p class="animate-icons">
-            <a href="assets/SaiYeshwanthMekala.pdf" target="_blank" class="icon-link">
-                <img src="assets/resume.jpeg"  alt="Icon 1">
-            </a>
-            <a href="mailto: yesh20@icloud.com" target="_blank" class="icon-link" style="height: 47px;width: 47px;">
-                <img src="assets/email.png" alt="Icon 2">
-            </a>
-            <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank" class="icon-link">
-                <img src="assets/linkedin.png" alt="Icon 3">
-            </a>
-            <a href="https://github.com/msaiyeshwanth" target="_blank" class="icon-link">
-                <img src="assets/github.png" alt="Icon 4">
-            </a>
-        </p>
-</section>
-<div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
-    <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
-        <h2>Contact Me</h2>
-        <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
-            <input type="submit" value="Send">
-        </form>
     </div>
-</div>     
-</div>
-    
+    <div id="home1">
+        <div class="home1text">
+            <p>Data Science Enthusiast</p>
+            <h1 id="typing-effect">Hi, I'm <span>Sai Yeshwanth</span> <br> Mekala</h1>
+        </div>
+    </div>
+
+    <div id='about'>
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="assets/newpic2.JPEG" alt="pic2"> 
+                    <p id = "resumep">
+                        <a href="assets/SaiYeshwanthMekala.pdf" target="_blank">
+                            Download my Resume
+                        </a>
+                    </p>
+                </div>            
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>
+                        A Data Science enthusiast excited in playing with Data to generate meaningful and actionable insights. I am highly interested in Data Analytics and Predictive Modelling. My proficiency in applying Statistical Analysis, Predictive Modelling and Data Visualization helps me to excel in playing with the Data.
+                    </p>
+                    <p>
+                        In my free time, I like watching Movies and playing Cricket. I enjoy listening to music, it charges me.
+                    </p>
+                    <p>
+                        Sounds interesting? Let's connect and play with the Data!
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick= "opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick= "opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick= "opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming:</span><br>Python, R, Java, C++</li>
+                            <li><span>Database:</span><br>SQL, MySQL, Oracle, MongoDB</li>
+                            <li><span>Data Visualization:</span><br>Tableau, Power BI, Excel</li>
+                            <li><span>IDE’s:</span><br>Jupyter Notebook, R Studio, Eclipse, VS Code</li>
+                            <li><span>Cloud:</span><br>IBM Watson Studio, Google Cloud, AWS</li>
+                            <li><span>Languages:</span><br>English, Telugu (Native), Hindi</li>
+                            <li><span>Others:</span><br>Statistics, Data Mining, Data Structures, Communication, scikit-learn, pandas, TensorFlow, Keras, Git</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>01 July 2021 - 28 June 2023</span><br>Systems Engineer @ Tata Consultancy Services</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023-current</span><br>Masters in Data Science | University of Colorado Boulder</li>
+                            <li><span>2017-2021</span><br>Bachelors in Information and Communication Technology | SASTRA Deemed University</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="container" id = 'homecontact'>
+            <h1>Contact Me</h1>
+            <p>Feel free to connect with me and ask questions or collaborate!</p>
+        </div>
+        <div id = 'homecontacticons'>
+            <a href="mailto: yesh20@icloud.com" target="_blank">
+                <img src="assets/mail.png" alt="Icon 1">
+            </a>
+            <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                <img src="assets/linkedin.webp" alt="Icon 2">
+            </a>
+            <a href="https://github.com/msaiyeshwanth" target="_blank">
+                <img src="assets/github.png" alt="Icon 3">
+            </a>
+        </div>
+    </div>
+
+
+    <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
+            <h2>Contact Me</h2>
+            <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+            <div id = 'homecontacticons'>
+                <a href="mailto: yesh20@icloud.com" target="_blank">
+                    <img src="assets/mail.png" alt="Icon 1">
+                </a>
+                <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                    <img src="assets/linkedin.webp" alt="Icon 2">
+                </a>
+                <a href="https://github.com/msaiyeshwanth" target="_blank">
+                    <img src="assets/github.png" alt="Icon 3">
+                </a>
+            </div>
+        </div>
+    </div>     
+</div>           
     <script src="script.js"></script>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links")
+        var tabcontents = document.getElementsByClassName("tab-contents")
+
+        function opentab(tabname){
+            for (tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for (tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
 </body>
 </html>
