@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Detection using Machine Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="indexbody">
+    <div class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mywork.html" class="active">My Work</a></li>
+                    <li class="dropdown">
+                        <a href="introduction.html" class="dropdown-btn">Machine Learning</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="motivationandpreviouswork.html">Motivation and Previous Work</a>
+                            <a href="DataPrepEDA.html">DataPrep/EDA</a>
+                            <div class="dropdown models-dropdown">
+                                <a href="clustering.html" class="dropdown-btn">Models</a>
+                                <div class="dropdown-content">
+                                    <a href="clustering.html">Clustering</a>
+                                    <a href="arm.html">ARM</a>
+                                    <a href="dt.html">DT</a>
+                                    <a href="nb.html">NB</a>
+                                    <a href="svm.html">SVM</a>
+                                    <a href="regression.html">Regression</a>
+                                    <a href="nn.html">NN</a>
+                                </div>
+                            </div>
+                            <a href="conclusions.html">Conclusions</a>
+                            <a href="codeanddata.html">Code and Data</a>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <section class="clustering-section">
+        <div class="container">
+            <div id="imageModal" class="modal" onclick="closeImageModal();">
+                <div class="modal-content" onclick="event.stopPropagation();">
+                    <span class="close" onclick="closeImageModal();">&times;</span>
+                    <img id="expandedImage" src="" alt="Expanded Image">
+                </div>
+            </div>
+        <h1 style="text-align: center; margin-bottom: 25px;" class="sub-title">Breast Cancer Detection Using Machine Learning</h1>
+        <img src="assets/pubimg.jpeg" alt="Methodology" class="clustering-overview-images">
+        <a href="assets/ijatcse12922020.pdf" target="_blank" class="btn">
+            Publication Link
+        </a>
+        <a href="https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic" target="_blank" class="btn">
+            Dataset Link
+        </a>
+        <a href="https://github.com/msaiyeshwanth/breast-cancer-project" target="_blank" class="btn">
+            Code Link
+        </a>
+        <h1>Introduction:</h1>
+        <p>
+            Breast Cancer is one of the cancers which is claiming women's lives.Breast cancers are categorized according to the area in which they begin, that is, the ducts, the lobules, and the tissue in the middle. They can however generally be classified as benign and malignant. A Benign tumor that doesn’t spread to the other breast tissues and Malignant tumors spread to the other breast tissues. Previously many Technologies have been used to identify breast cancer, By Mammography the breast tissue is screened which decreases the death rate of breast cancer, but it has certain limitations. Ultrasound Imaging is also used to identify by sending ultrasonic waves into the body, but it also has limitations like it cannot detect tumor which size is less than 5 mm. Sonography is another technology to identify the tumors initially it is done with mammography and Sonography checks any abnormalities in it. By Infrared Thermography, Infrared sensors are used to image the heat differences in the breast tissue. Regions which are having high temperature are considered as tumors. All these technologies didn’t show accurate results and were a kind of risky.
+            Nowadays Technology is well developed and new technologies were getting more accurate results than older ones. Machine learning is part of Artificial Intelligence(AI) which allows systems to learn automatically based on machine learning algorithms and improve the performance of the system without any programming. Doctors want to distinguish between these tumors through a good diagnosis process. Tumors even by specialists are generally very difficult to identify. Automation of the diagnostic device is also essential to diagnose tumors. Several researchers pursued early detection of cancer by machine learning techniques. Such approaches perform well in cancer diagnostics, as the researchers have shown. Machine Learning techniques are the most used techniques for finding breast cancer and these techniques are easy and safe for the patients. These techniques include logistic regression, Random Forest, Decision Tree, Etc ., Logistic Regression uses a cancer database and classifies the tumors as benign and malignant based on the size and nature of tumor which gives 99.3 percent accuracy in the result. The random forest technique combines all the basic multiple algorithms and gives the result. It uses classification and regression methods to solve problems which gives 96.5 percent accuracy as a result. Decision Tree classifier method gives 93.71 percent accuracy. So These machine learning techniques give more accurate results when compare to older technologies which gives 70 to 80 percent accuracy.
+        </p>
+        <h1>Methodology:</h1>
+        <img src="assets/bcpic1.png" alt="Methodology" class="clustering-overview-images"> 
+        <p>
+            First, the Breast Cancer Wisconsin (Diagnostic) Data Set[12]
+collected from the UCI machine learning repository must be
+read. It consists of 569 rows and 32 columns. Then, check
+for missing values in the data set and impute if any. Next,
+visualize the data attributes using histograms, box plot, etc.
+Now, to work with continuous variables, the categorical
+variables in our data set are converted into continuous
+variables by performing one-hot encoding. Next, the data set
+is split into the training data set and testing data set. Then
+feature scaling is performed by using Standard Scaler.
+Standard scaler will normalize the features such that each
+feature will be having mean as 0 and standard deviation as 1.
+Then the training data set is given to learning algorithms like
+logistic regression, random forest, and decision tree to
+generate models. Now to predict whether the cancer cells are
+malignant or benign, the test data should be given to the
+model which was generated by using the training data set.
+Finally, for the Breast Cancer Wisconsin (Diagnostic) Data
+Set[12] Logistic regression has achieved 99.3% accuracy,
+Random Forest Classifier has achieved 96.5% accuracy and
+decision tree Classifier has achieved 93.7% accuracy. Flow
+chart for the Breast Cancer Detection has been shown in
+Figure 1. Sample code for the Breast Cancer Detection
+is shown in Figure 2.
+        </p>
+        <img src="assets/bcpic2.png" alt="Methodology" class="clustering-overview-images">        
+        <p>
+            Confusion Matrix for Logistic Regression, Random
+Forest, Decision Tree Classifier are shown in Table 1, Table
+2, Table 3 respectively.
+        </p>
+        <img src="assets/bcpic3.png" alt="Methodology" class="clustering-overview-images"> 
+        
+        <p>Evaluation Metrics for various
+            Machine Learning Techniques used in this work are shown
+            in Table 4.</p>
+            <img src="assets/bcpic4.png" alt="Methodology" class="clustering-overview-images">         
+        <h1>Conclusion:</h1>
+        <p>
+            There is a chance of 12% for a woman picked randomly to be diagnosed with breast cancer. So the early detection of breast cancer will be very useful in treatment. In this work, various Machine learning supervised algorithms are used for the detection of Breast Cancer. On the Breast Cancer Wisconsin (Diagnostic) Data Set 3 main algorithms are used which are Logistic Regression, Random Forest Classifier, and Decision Tree Classifier. It has been observed that Logistic regression has achieved a higher efficiency of 99.3% accuracy whereas Random Forest Classifier has achieved 96.5% accuracy and Decision Tree Classifier has achieved 93.7% accuracy. Thus supervised machine learning algorithms will be very useful in early diagnosis and prognosis of cancer type.
+        </p>
+
+        </div>
+    </section>
+    
+
+    <div>
+        <div class="container" id = 'homecontact'>
+            <h1>Contact Me</h1>
+            <p>Feel free to connect with me and ask questions or collaborate!</p>
+        </div>
+        <div id = 'homecontacticons'>
+            <a href="mailto: yesh20@icloud.com" target="_blank">
+                <img src="assets/mail.png" alt="Icon 1">
+            </a>
+            <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                <img src="assets/linkedin.webp" alt="Icon 2">
+            </a>
+            <a href="https://github.com/msaiyeshwanth" target="_blank">
+                <img src="assets/github.png" alt="Icon 3">
+            </a>
+        </div>
+    </div>
+
+
+    <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
+            <h2>Contact Me</h2>
+            <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+            <div id = 'homecontacticons'>
+                <a href="mailto: yesh20@icloud.com" target="_blank">
+                    <img src="assets/mail.png" alt="Icon 1">
+                </a>
+                <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                    <img src="assets/linkedin.webp" alt="Icon 2">
+                </a>
+                <a href="https://github.com/msaiyeshwanth" target="_blank">
+                    <img src="assets/github.png" alt="Icon 3">
+                </a>
+            </div>
+        </div>
+    </div>     
+</div>           
+    <script src="script.js"></script>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links")
+        var tabcontents = document.getElementsByClassName("tab-contents")
+
+        function opentab(tabname){
+            for (tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for (tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+</body>
+</html>

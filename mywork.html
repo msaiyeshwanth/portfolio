@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My work</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="indexbody">
+    <div class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mywork.html" class="active">My Work</a></li>
+                    <li class="dropdown">
+                        <a href="introduction.html" class="dropdown-btn">Machine Learning</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="motivationandpreviouswork.html">Motivation and Previous Work</a>
+                            <a href="DataPrepEDA.html">DataPrep/EDA</a>
+                            <div class="dropdown models-dropdown">
+                                <a href="clustering.html" class="dropdown-btn">Models</a>
+                                <div class="dropdown-content">
+                                    <a href="clustering.html">Clustering</a>
+                                    <a href="arm.html">ARM</a>
+                                    <a href="dt.html">DT</a>
+                                    <a href="nb.html">NB</a>
+                                    <a href="svm.html">SVM</a>
+                                    <a href="regression.html">Regression</a>
+                                    <a href="nn.html">NN</a>
+                                </div>
+                            </div>
+                            <a href="conclusions.html">Conclusions</a>
+                            <a href="codeanddata.html">Code and Data</a>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div id="mywork">
+        <div class="container">
+            <h1 class="sub-title">Publication and Projects</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="assets/pubimg.jpeg" alt="publication">
+                    <div class="layer">
+                        <h3>Breast Cancer Detection Using Machine Learning</h3>    
+                        <!-- <p>sdbahfduadif</p> -->
+                        <a href="breastcancerdetectionusingmachinelearning.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="assets/project1.webp" alt="project1">
+                    <div class="layer">
+                        <h3>Heart Disease Identification from Patients’ Social Posts, Machine Learning Solution on Spark</h3>    
+                        <!-- <p>sdbahfduadif</p> -->
+                        <a href="heartdiseaseidentification.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="assets/project2.png" alt="project2">
+                    <div class="layer">
+                        <h3>Data-Driven Meteorology: Unveiling Insights from Weather Data</h3>    
+                        <!-- <p>sdbahfduadif</p> -->
+                        <a href="introduction.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="assets/project3.webp" alt="project3">
+                    <div class="layer">
+                        <h3>Sport Retail Data Insights</h3>    
+                        <!-- <p>sdbahfduadif</p> -->
+                        <a href="sportretaildatainsights.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="assets/project4.jpeg" alt="project4">
+                    <div class="layer">
+                        <h3>Coffee Contains more Caffeine than an Energy Drink</h3>    
+                        <!-- <p>sdbahfduadif</p> -->
+                        <a href="coffeecontainsmorecaffeinethananenergydrink.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="assets/project5.webp" alt="project5">
+                    <div class="layer">
+                        <h3>Applying Dimensionality Reduction in Collaborative Filtering
+                            Recommender Systems</h3>    
+                        <!-- <p>sdbahfduadif</p> -->
+                        <a href="applyingdimensionalityreductionincollaborativefiltering.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="container" id = 'homecontact'>
+            <h1>Contact Me</h1>
+            <p>Feel free to connect with me and ask questions or collaborate!</p>
+        </div>
+        <div id = 'homecontacticons'>
+            <a href="mailto: yesh20@icloud.com" target="_blank">
+                <img src="assets/mail.png" alt="Icon 1">
+            </a>
+            <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                <img src="assets/linkedin.webp" alt="Icon 2">
+            </a>
+            <a href="https://github.com/msaiyeshwanth" target="_blank">
+                <img src="assets/github.png" alt="Icon 3">
+            </a>
+        </div>
+    </div>
+
+
+    <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
+            <h2>Contact Me</h2>
+            <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+            <div id = 'homecontacticons'>
+                <a href="mailto: yesh20@icloud.com" target="_blank">
+                    <img src="assets/mail.png" alt="Icon 1">
+                </a>
+                <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                    <img src="assets/linkedin.webp" alt="Icon 2">
+                </a>
+                <a href="https://github.com/msaiyeshwanth" target="_blank">
+                    <img src="assets/github.png" alt="Icon 3">
+                </a>
+            </div>
+        </div>
+    </div>     
+</div>           
+    <script src="script.js"></script>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links")
+        var tabcontents = document.getElementsByClassName("tab-contents")
+
+        function opentab(tabname){
+            for (tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for (tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+</body>
+</html>

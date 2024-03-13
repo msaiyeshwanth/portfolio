@@ -7,12 +7,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-#indexbody{
     background-color: #080808;
     color: #fff;
     margin-bottom: 50px;
 }
+/* #indexbody{
+    background-color: #080808;
+    color: #fff;
+    margin-bottom: 50px;
+} */
 
 * {
     font-family: 'Raleway', sans-serif;
@@ -623,19 +626,100 @@ table{
 }
 #homecontacticons {
     display: flex;
-    justify-content: center; /* Align items horizontally at the center */
-    align-items: center; /* Align items vertically at the center */
+    justify-content: center; 
+    align-items: center; 
 }
 #homecontacticons img {
-    max-width: 50px; /* Adjust width as needed */
-    max-height: 50px; /* Adjust height as needed */
-    margin: 20px 10px 0px 10px; /* Adjust margin between icons as needed */
+    max-width: 50px; 
+    max-height: 50px;
+    margin: 20px 10px 0px 10px; 
     border-radius: 50px;
 }
 #contactModal #homecontacticons{
     margin-top: 50px;
     margin-bottom: 10px;
 }
+
+#portfolio{
+    padding: 10px 0;
+}
+#mywork{
+    padding: 50px 0px;
+}
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.work img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.layer{
+    width: 100%;
+    height: 0;
+    background:linear-gradient(rgba(0,0,0,0.6), #007BFF);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* padding: 0 40px; */
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+.layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.layer a{
+    /* margin-top: 20px; */
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.work:hover img{
+    transform: scale(1.1);
+}
+.work:hover .layer{
+    height: 100%;
+}
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #007BFF;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: #007BFF;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .nav-links {
