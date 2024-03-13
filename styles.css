@@ -7,6 +7,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+#indexbody{
     background-color: #080808;
     color: #fff;
     margin-bottom: 50px;
@@ -509,7 +511,7 @@ table{
     background-position: center;
 }
 .home1text{
-    margin: 15% 10%;
+    margin: 20% 10%;
     font-size: 20px;
 }
 .home1text h1{
