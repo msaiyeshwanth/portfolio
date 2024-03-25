@@ -57,7 +57,7 @@
         <h1 style="text-align: center; margin-bottom: 25px;">DECISION TREES</h1>
         <h1>OVERVIEW:</h1>
         <p>
-            Decision Trees are a popular supervised learning algorithm used for both classification and regression tasks in machine learning. They recursively partition the feature space into smaller regions based on feature values, ultimately resulting in a tree-like structure.
+            Decision Trees are a popular supervised learning algorithm used for both classification and regression tasks in machine learning. They recursively partition the feature space into smaller regions based on feature values, ultimately resulting in a tree-like structure. It requires labeled data.
         </p>
         <img src="assets/dt1.png" alt="dt1" class="clustering-overview-images">
 
@@ -141,10 +141,256 @@
             </p>
         </ol>
         <p>
-            <strong>Calculation:</strong>
+            <h2><strong>Calculation:</strong></h2>
             <img src="assets/dtexample.png" alt="dtexample" class="clustering-overview-images">
         </p>
 
+
+        <h1>PLAN</h1>
+        <p>
+            <ol>
+                <li>
+                    Load the cleaned Denver weather dataset, preprocess it to label weather descriptions, convert features into factor type, and filter data for Denver only.                </li>
+                <li>
+                    Split the dataset into training and testing sets using stratified sampling to ensure proportional representation of each class in both sets.                </li>
+                <li>
+                    Train Decision Tree Classifier models with different criteria and splitter combinations, evaluate accuracy, and generate confusion matrices.                </li>
+                <li>
+                    Visualize the decision trees and plot their confusion matrices.
+                </li>
+                <li>
+                    Analyze feature importance to understand which features are most relevant for weather prediction.
+                </li>
+            </ol>
+        </p>
+
+        <h1>DATA PREPARATION</h1>
+        <p>
+            R(rpart) can perform Decision Tree on mixed labeled data (quantitative and qualitative) whereas in Python (Sklearn), data must be quantitative and labeled. 
+        </p>
+        <ol>
+            <h3><li>Before Transformation:</li></h3> 
+            <p>
+                The below image shows the sample of data before transformation.
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
+                    <img src="assets/aftercleaning.png" alt="aftercleaning">
+                </div>
+            </div>
+            
+            <h3><li>After Filtering Denver Data:</li></h3>
+            <p>The below image shows the data after filtering city by Denver.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl1.png')">
+                    <img src="assets/clfcl1.png" alt="Filtering Denver Data">
+                </div>
+            </div>
+
+            <h3><li>After Transformation (Python):</li></h3>
+            <p>The below image shows the data after after After labelling (clear/not clear) the data for classification and changing its type to Category.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl2.png')">
+                    <img src="assets/clfcl2.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>After Transformation (R):</li></h3>
+            <p>The below image shows the labelling (clear/not clear) the data for classification and changing its type to Factor.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl3.png')">
+                    <img src="assets/clfcl3.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Splitting data into Train and Test set (Python):</li></h3>
+            <p>The below image shows train and test data created using stratified sampling to ensure that each class is represented proportionally in both sets. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl4.png')">
+                    <img src="assets/clfcl4.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Checking the balance of the Train and Test set (Python):</li></h3>
+            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl5.png')">
+                    <img src="assets/clfcl5.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Splitting data into Train and Test set (R):</li></h3>
+            <p>The below image shows train and test data created using Random sample without replacement. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl6.png')">
+                    <img src="assets/clfcl6.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Checking the balance of the Train and Test set (R):</li></h3>
+            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl7.png')">
+                    <img src="assets/clfcl7.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Classification Dataset:</li></h3>
+            <p><a href="https://drive.google.com/file/d/1-sNUYX2qMNrFjHfxhmGQW0UkSOkQZ5E3/view?usp=sharing" target="_blank">classificationdata.csv</a></p>
+        </ol>
+
+        <h1>CODE</h1>
+        <ol>
+            <h3><li>Decision Tree (Python):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/DT%20(py).ipynb" target="_blank">DT (py).ipynb</a></p>
+
+            <h3><li>Decision Tree (R):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/DT%20(R).ipynb" target="_blank">DT (R).ipynb</a></p>
+        </ol>
+
+        <h1>RESULTS</h1>
+
+        <ol>
+            <h3><li>Accuracy (Python):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr1.png')">
+                    <img src="assets/dtr1.png" alt="accuracy (Python)">
+                </div>
+            </div>
+            <p>
+                The above image displays accuracy of 4 different trees. Decision Tree with entropy criterion and best splitter achieved highest accuracy of 67.79%. 
+            </p>
+
+            <h3><li>Confusion Matrix (Python):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr2.png')">
+                    <img src="assets/dtr2.png" alt="cm1">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr3.png')">
+                    <img src="assets/dtr3.png" alt="cm2">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr4.png')">
+                    <img src="assets/dtr4.png" alt="cm3">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr5.png')">
+                    <img src="assets/dtr5.png" alt="cm4">
+                </div>
+            </div>
+            <strong>
+                <p>
+                    1. entropy criterion and best splitter   2. entropy criterion and random splitter  3. gini criterion and best splitter  4. gini criterion and random splitter.
+                </p>
+            </strong>
+            
+            <p>
+                The above images displays confusion matrix of 4 different trees. 
+            </p>
+
+            <h3><li>Tree Viz. (Python):</li></h3>
+            <p>
+                The below links are the Tree visualization for 4 different trees.
+            </p>
+            <ol>
+                <strong><li>entropy criterion and best splitter:</li></strong>
+                <p><a href="https://drive.google.com/file/d/1jCsDxxZ-gvDEFv3vVzDOGsFy-Xmv56mQ/view?usp=sharing" target="_blank">Tree1.pdf</a></p>
+    
+                <strong><li>entropy criterion and random splitter:</li></strong>
+                <p><a href="https://drive.google.com/file/d/18iBkR5vvm3SHbnmGDOxVrJ2yQIrkURfP/view?usp=sharing" target="_blank">Tree2.pdf</a></p>
+
+                <strong><li>gini criterion and best splitter:</li></strong>
+                <p><a href="https://drive.google.com/file/d/10bT_gEEwmoT91426LM9wyBgQV9A1zQ2x/view?usp=sharing" target="_blank">Tree3.pdf</a></p>
+    
+                <strong><li>gini criterion and random splitter:</li></strong>
+                <p><a href="https://drive.google.com/file/d/1f-QNkJw_VshoQPphP9_CriWvUhKFCRRF/view?usp=sharing" target="_blank">Tree4.pdf</a></p>
+                
+            </ol>
+            <strong>Note: Download the pdfs to view the Tree Viz.</strong>
+
+            <h3><li>CP plot (R):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr15.png')">
+                    <img src="assets/dtr15.png" alt="accuracy (Python)">
+                </div>
+            </div>
+            <p>
+                The above image displays CP plot. 
+                <br> The x-axis represents the complexity parameter (CP) values. Each point on the x-axis corresponds to a particular level of complexity parameter. 
+                <br> The y-axis represents the cross-validated error rate associated with each complexity parameter value.
+            </p>
+
+            <p>
+                The goal is to choose a CP value that results in a decision tree model with sufficient pruning to avoid overfitting, while still retaining good predictive performance on new data.
+                <br> The small cp the larger the tree if cp is too small you have overfitting. So, choosing cp as 0.092
+
+            </p>
+            <p>
+                Where,
+                <br> <strong>CP:</strong> Complexity parameter values.
+                <br> <strong>nsplit:</strong> Number of splits in the tree.
+                <br> <strong> rel error:</strong> It is the error rate relative to the root node (1.000 represents the error rate at the root node).
+                <br> <strong>xerror:</strong>It is the Cross-validated error rate, which estimates the error rate of the tree on unseen data using cross-validation.
+                <br> <strong>xstd:</strong> Standard error of the cross-validated error rate.
+            </p>
+
+            <h3><li>Accuracy and Confusion Matrix (R):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr6.png')">
+                    <img src="assets/dtr6.png" alt="cm1">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr7.png')">
+                    <img src="assets/dtr7.png" alt="cm2">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr8.png')">
+                    <img src="assets/dtr8.png" alt="cm3">
+                </div>
+            </div>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr9.png')">
+                    <img src="assets/dtr9.png" alt="cm1">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr10.png')">
+                    <img src="assets/dtr10.png" alt="cm2">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr11.png')">
+                    <img src="assets/dtr11.png" alt="cm3">
+                </div>
+            </div>
+            <strong>
+                <p>
+                    1. Decision tree with gini criterion (defualt)  2. Decision tree with gini criterion (defualt) and cp = 0.092  3. Decision tree with entropy criterion and cp = 0.092.
+                </p>
+            </strong>
+            <p>
+                The above images displays accuracy and confusion matrix of 3 different trees. Decision Tree with gini criterion has achieved highest accuracy of 67.98%. 
+            </p>
+
+
+            <h3><li>Tree Viz. (R):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr12.png')">
+                    <img src="assets/dtr12.png" alt="cm1">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr13.png')">
+                    <img src="assets/dtr13.png" alt="cm2">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr14.png')">
+                    <img src="assets/dtr14.png" alt="cm3">
+                </div>
+            </div>
+            <strong>
+                <p>
+                    1. Decision tree with gini criterion (defualt)  2. Decision tree with gini criterion (defualt) and cp = 0.092  3. Decision tree with entropy criterion and cp = 0.092.
+                </p>
+            </strong>
+            <p>
+                The above images are the Tree visualization for 3 different trees. The small cp the larger the tree if cp is too small you have overfitting.
+            </p>
+        </ol>
+
+        <h1>CONCLUSION</h1>
+        <p>
+            The analysis of decision trees provided us with some fascinating insights into how we can classify weather patterns effectively. By delving into the decision paths within the tree, we gained a clearer understanding of how various weather features contribute to classification outcomes. This allowed us to identify which factors have the most significant influence on determining whether the weather is clear or not. Visualizing the structure of the decision tree made it easier to see the critical decision points and how they affect the final classification. Additionally, comparing decision trees trained with different criteria and splitters gave us valuable information about the predictive accuracy and the importance of different features. These findings deepen our understanding of weather prediction and could have important implications for a range of applications, from urban planning to disaster management. In essence, the decision tree analysis offers us a powerful tool for making sense of complex weather data and extracting actionable insights that can inform decision-making.
+        </p>
     </div>
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
