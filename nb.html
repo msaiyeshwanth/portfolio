@@ -115,10 +115,21 @@
         <p>
             Bernoulli Naive Bayes is a variant of Naive Bayes that is appropriate for binary feature vectors, where features represent whether a particular term occurs or not in a document. It models the presence or absence of each feature in a document, rather than its frequency. This makes it suitable for tasks like document classification where only the presence of words matters, such as spam detection or sentiment analysis in short text messages like tweets.
         </p>
+        <p>
+            If X is random variable Bernoulli-distributed, it can assume only two values (for simplicity, let’s call them 0 and 1) and their probability is:
+        </p>
+        <img src="assets/nb8.png" alt="nb8" class="clustering-overview-images">
+
         <h1>Gaussian Naive Bayes:</h1>
         <p>
-            Gaussian Naive Bayes is a type of Naive Bayes classifier which works on continuous normally distributed features.
+            Gaussian Naive Bayes is a type of Naive Bayes classifier which works on continuous normally distributed features, which probabilities can be modeled using a Gaussian distribution.
         </p>
+        <img src="assets/nb9.png" alt="nb9" class="clustering-overview-images">
+        <p>
+            The conditional probabilities P(xi|y) are also Gaussian distributed and, therefore, it’s necessary to estimate mean and variance of each of them using the maximum likelihood approach. This quite easy, in fact, considering the property of a Gaussian, we get:
+        </p>
+        <img src="assets/nb10.jpeg" alt="nb10" class="clustering-overview-images">
+
 
 
         <h1>PLAN:</h1>
