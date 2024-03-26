@@ -46,9 +46,234 @@
         </div>
     </header>
 
-  <section class="nb-section">
+<section class="nb-section">
     <div class="container">
-        <p>Coming soon!</p>
+        <div id="imageModal" class="modal" onclick="closeImageModal();">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeImageModal();">&times;</span>
+                <img id="expandedImage" src="" alt="Expanded Image">
+            </div>
+        </div>
+        <h1 style="text-align: center; margin-bottom: 25px;">NAIVE BAYES</h1>
+        <h1>OVERVIEW:</h1>
+        <p>
+            Naive Bayes is a supervised classification algorithm based on Bayes' theorem. The reason that Naive Bayes algorithm is called Naive is because the algorithm makes a very strong assumption about the data having features independent of each other while in reality, they may be dependent in some way.
+        </p>
+
+        <p>
+            In other words, it assumes that the presence of one feature in a class is
+            completely unrelated to the presence of all other features. If this assumption
+            of independence holds, Naive Bayes performs extremely well and often
+            better than other models.
+        </p>
+        <img src="assets/nb1.png" alt="nb1" class="clustering-overview-images">
+
+        <p>
+            Naive Bayes can also be used with continuous features but is more suited to
+            categorical variables. If all the input features are categorical, Naive Bayes is
+            recommended. However, in case of numeric features, it makes another
+            strong assumption which is that the numerical variable is normally
+            distributed.
+        </p>
+        <img src="assets/nb7.jpg" alt="nb7" class="clustering-overview-images">
+
+
+        <h1>MULTINOMIAL NAIVE BAYES:</h1>
+        <p>
+            From Python sklearn: MultinomialNB implements the naive Bayes algorithm for multinomially distributed data, and is one of the two classic naive Bayes variants used in text classification (where the data are typically represented as word vector counts, although tf-idf vectors are also known to work well in practice).
+        </p>
+
+        <p>
+            The multinomial distribution is the type of probability distribution used to calculate the outcomes of experiments involving two or more variables. The more widely known binomial distribution is a special type of multinomial distribution in which there are only two possible outcomes.
+        </p>
+        <h1>EXAMPLE:</h1>
+        <img src="assets/nb2.png" alt="nb2" class="clustering-overview-images">
+
+        <p>
+            Given a Test Record X, classify as Evade Class (C) =Yes or No
+        </p>
+        <p>
+            Let record X =  {Refund R=No, Married M=Yes, Income I =120K}.
+        </p>
+        <p>
+            So, attribute A1 is Refund, attribute A2 is Married, and Attribute A3 is Income.
+        </p>
+        <img src="assets/nb3.png" alt="nb3" class="clustering-overview-images">
+        <p>
+            If an attribute (such as Taxable Income) is numeric, you can either discretize or you can use a likelihood to estimate the probability.
+        </p>
+        <img src="assets/nb4.png" alt="nb4" class="clustering-overview-images">
+        <img src="assets/nb5.png" alt="nb5" class="clustering-overview-images">
+
+        <h1>SMOOTHING:</h1>
+        <p>
+            Smoothing is required for NB models to handle unseen features in the test data. Without smoothing, if a feature appears in the test data but not in the training data, the probability calculation will result in zero probability for that feature, causing the entire likelihood to be zero. Smoothing techniques like Laplace smoothing or Lidstone smoothing add a small constant to all feature counts, ensuring that no feature has zero probability and preventing the model from being overly confident in its predictions.
+        </p>
+        <img src="assets/nb6.png" alt="nb6" class="clustering-overview-images">
+
+        <h1>Bernoulli Naive Bayes:</h1>
+        <p>
+            Bernoulli Naive Bayes is a variant of Naive Bayes that is appropriate for binary feature vectors, where features represent whether a particular term occurs or not in a document. It models the presence or absence of each feature in a document, rather than its frequency. This makes it suitable for tasks like document classification where only the presence of words matters, such as spam detection or sentiment analysis in short text messages like tweets.
+        </p>
+        <h1>Gaussian Naive Bayes:</h1>
+        <p>
+            Gaussian Naive Bayes is a type of Naive Bayes classifier which works on continuous normally distributed features.
+        </p>
+
+
+        <h1>PLAN:</h1>
+        <p>
+            <ol>
+                <li>
+                    Load the cleaned Denver weather dataset, preprocess it to label weather descriptions, convert features into Category/Factor type, and filter data for Denver only.                
+                </li>
+                <li>
+                    Split the dataset into training and testing sets using stratified sampling in python and random sampling without replacement in R to ensure proportional representation of each class in both sets.                
+                </li>
+                <li>
+                    Train Naive Bayes classifier, evaluate accuracy, and generate confusion matrices.               
+                 </li>
+                <li>
+                    Visualize their confusion matrices.
+                </li>
+            </ol>
+        </p>
+
+        <h1>DATA PREPARATION:</h1>
+        <p>
+            naiveBayes() in R from the e1071 package can handle both quantitative data including numeric features with negative values and qualitative data. In python (sklearn), but Multinomial Naive Bayes does not support negative values. So Gaussian Naive Bayes in Python is ideal for the weather data as temperature contains negative values.
+        </p>
+        <ol>
+            <h3><li>Before Transformation:</li></h3> 
+            <p>
+                The below image shows the sample of data before transformation.
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
+                    <img src="assets/aftercleaning.png" alt="aftercleaning">
+                </div>
+            </div>
+            
+            <h3><li>After Filtering Denver Data:</li></h3>
+            <p>The below image shows the data after filtering city by Denver.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl1.png')">
+                    <img src="assets/clfcl1.png" alt="Filtering Denver Data">
+                </div>
+            </div>
+
+            <h3><li>After Transformation (Python):</li></h3>
+            <p>The below image shows the data after after After labelling (clear/not clear) the data for classification and changing its type to Category.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl2.png')">
+                    <img src="assets/clfcl2.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>After Transformation (R):</li></h3>
+            <p>The below image shows the labelling (clear/not clear) the data for classification and changing its type to Factor.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl3.png')">
+                    <img src="assets/clfcl3.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Splitting data into Train and Test set (Python):</li></h3>
+            <p>The below image shows train and test data created using stratified sampling to ensure that each class is represented proportionally in both sets. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl4.png')">
+                    <img src="assets/clfcl4.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Checking the balance of the Train and Test set (Python):</li></h3>
+            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl5.png')">
+                    <img src="assets/clfcl5.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Splitting data into Train and Test set (R):</li></h3>
+            <p>The below image shows train and test data created using Random sample without replacement. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl6.png')">
+                    <img src="assets/clfcl6.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Checking the balance of the Train and Test set (R):</li></h3>
+            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl7.png')">
+                    <img src="assets/clfcl7.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Classification Dataset:</li></h3>
+            <p><a href="https://drive.google.com/file/d/1-sNUYX2qMNrFjHfxhmGQW0UkSOkQZ5E3/view?usp=sharing" target="_blank">classificationdata.csv</a></p>
+        </ol>
+
+        <h1>CODE:</h1>
+        <ol>
+            <h3><li>Gaussian Naive Bayes (Python):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/NB%20(py).ipynb" target="_blank">NB (py).ipynb</a></p>
+
+            <h3><li>Naive Bayes (R):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/NB%20(R).ipynb" target="_blank">NB (R).ipynb</a></p>
+        </ol>
+
+        <h1>RESULTS:</h1>
+        <ol>
+            <h3><li>Accuracy (Python):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nbr1.png')">
+                    <img src="assets/nbr1.png" alt="accuracy (Python)">
+                </div>
+            </div>
+            <p>
+                Gaussian Naive Bayes model achieved an accuracy of 66.85%.
+            </p>
+
+            <h3><li>Confusion Matrix (Python):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nbr2.png')">
+                    <img src="assets/nbr2.png" alt="cm (Python)">
+                </div>
+            </div>
+            <p>
+                The above image displays confusion matrix of the Gaussian Naive Bayes classifier.
+            </p>
+
+            <h3><li>Prediction probabilities (Python):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nbr3.png')">
+                    <img src="assets/nbr3.png" alt="pp (Python)">
+                </div>
+            </div>
+            <p>
+                The above image displays prediction probabilities. Columns are the labels in alphabetical order and the decimal in the matrix are the probability of being that label.
+            </p>
+            <h3><li>Accuracy and Confusion Matrix (R):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nbr4.png')">
+                    <img src="assets/nbr4.png" alt="accuracy (R)">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/nbr5.png')">
+                    <img src="assets/nbr5.png" alt="accuracy (R)">
+                </div>
+            </div>
+            <p>
+                The above images displays the accuracy and confusion matrix. Naive Bayes model in R achieved an accuracy of 66.98%.
+            </p>
+        </ol>
+
+        <h1>CONCLUSION:</h1>
+        <p>
+            Exploring Naive Bayes classifiers provided enlightening insights into effectively classifying weather patterns. Our analysis revealed that the Gaussian Naive Bayes model achieved an impressive accuracy of 66.85%, showcasing its efficacy in weather classification tasks. By examining the probability distributions underlying classification decisions, we discerned influential factors determining clear or unclear weather conditions. Visualizing the probabilistic models elucidated the intricate relationships between weather variables and classification outcomes. Comparing different Naive Bayes models highlighted the importance of algorithm choice and parameter selection in achieving optimal predictive accuracy. These findings deepen our understanding of weather analysis and offer valuable insights for diverse applications, such as agriculture and disaster management. In summary, Naive Bayes analysis equips us with a powerful tool for interpreting complex weather data and extracting actionable insights to inform decision-making processes.
+        </p>
+
+    </div>
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">

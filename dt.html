@@ -55,7 +55,7 @@
             </div>
         </div>
         <h1 style="text-align: center; margin-bottom: 25px;">DECISION TREES</h1>
-        <h1>OVERVIEW:</h1>
+        <h1>OVERVIEW</h1>
         <p>
             Decision Trees are a popular supervised learning algorithm used for both classification and regression tasks in machine learning. They recursively partition the feature space into smaller regions based on feature values, ultimately resulting in a tree-like structure. It requires labeled data.
         </p>
@@ -150,11 +150,14 @@
         <p>
             <ol>
                 <li>
-                    Load the cleaned Denver weather dataset, preprocess it to label weather descriptions, convert features into factor type, and filter data for Denver only.                </li>
+                    Load the cleaned Denver weather dataset, preprocess it to label weather descriptions, convert features into Category/Factor type, and filter data for Denver only.
+                </li>
                 <li>
-                    Split the dataset into training and testing sets using stratified sampling to ensure proportional representation of each class in both sets.                </li>
+                    Split the dataset into training and testing sets using stratified sampling stratified sampling in python and random sampling without replacement in R to ensure proportional representation of each class in both sets.
+                </li>
                 <li>
-                    Train Decision Tree Classifier models with different criteria and splitter combinations, evaluate accuracy, and generate confusion matrices.                </li>
+                    Train Decision Tree Classifier models with different criteria and splitter combinations, evaluate accuracy, and generate confusion matrices.
+                </li>
                 <li>
                     Visualize the decision trees and plot their confusion matrices.
                 </li>
@@ -306,6 +309,30 @@
             </ol>
             <strong>Note: Download the pdfs to view the Tree Viz.</strong>
 
+            <h3><li>Feature Importance (Python):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr16.png')">
+                    <img src="assets/dtr16.png" alt="accuracy (Python)">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr17.png')">
+                    <img src="assets/dtr17.png" alt="accuracy (Python)">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr18.png')">
+                    <img src="assets/dtr18.png" alt="accuracy (Python)">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/dtr19.png')">
+                    <img src="assets/dtr19.png" alt="accuracy (Python)">
+                </div>
+            </div>
+            <strong>
+                <p>
+                    1. entropy criterion and best splitter   2. entropy criterion and random splitter  3. gini criterion and best splitter  4. gini criterion and random splitter.
+                </p>
+            </strong>
+            <p>
+                The above images displays the feature importance for each tree.
+            </p>
+
             <h3><li>CP plot (R):</li></h3>
             <div class="cleaning-image-container">
                 <div class="thumbnail" onclick="expandImage('assets/dtr15.png')">
@@ -385,12 +412,29 @@
             <p>
                 The above images are the Tree visualization for 3 different trees. The small cp the larger the tree if cp is too small you have overfitting.
             </p>
+
+
+            <h3><li>Feature Importance (R):</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/dtr20.png')">
+                    <img src="assets/dtr20.png" alt="cm1">
+                </div>
+            </div>
+            <strong>
+                <p>
+                    1. Decision tree with gini criterion (defualt)  2. Decision tree with gini criterion (defualt) and cp = 0.092  3. Decision tree with entropy criterion and cp = 0.092.
+                </p>
+            </strong>
+            <p>
+                The above images displays the feature importance for each tree.
+            </p>
+
+
         </ol>
 
         <h1>CONCLUSION</h1>
         <p>
-            The analysis of decision trees provided us with some fascinating insights into how we can classify weather patterns effectively. By delving into the decision paths within the tree, we gained a clearer understanding of how various weather features contribute to classification outcomes. This allowed us to identify which factors have the most significant influence on determining whether the weather is clear or not. Visualizing the structure of the decision tree made it easier to see the critical decision points and how they affect the final classification. Additionally, comparing decision trees trained with different criteria and splitters gave us valuable information about the predictive accuracy and the importance of different features. These findings deepen our understanding of weather prediction and could have important implications for a range of applications, from urban planning to disaster management. In essence, the decision tree analysis offers us a powerful tool for making sense of complex weather data and extracting actionable insights that can inform decision-making.
-        </p>
+            The exploration of decision trees provided valuable insights into how we can effectively classify different weather patterns. We found that certain decision tree models, particularly those using the entropy criterion and the best splitter, performed quite well, achieving an accuracy rate of up to 67.79%. Looking at confusion matrices helped us understand how these models made classification errors, giving us a clearer picture of their strengths and limitations. Visualizing the decision tree structures allowed us to see the critical points where the model makes decisions and which features are most influential in determining the weather. Furthermore, analyzing feature importance showed us which weather variables play the most significant role in predicting conditions. In addition, our analysis in R underscored the importance of the complexity parameter (CP) in fine-tuning decision trees to avoid overfitting while maintaining accuracy. Overall, these findings enhance our understanding of weather prediction and have practical implications for areas like city planning and disaster preparedness. Decision tree analysis emerges as a powerful tool for making sense of complex weather data and guiding informed decision-making processes.        </p>
     </div>
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
