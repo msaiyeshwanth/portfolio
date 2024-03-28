@@ -128,11 +128,16 @@ source and the precision of the web scraping process.
         <h2>3.3 Statistical Analyses:</h2>
         <h3>3.3.1 Two Sample z-tests:</h3>
         <p>Conducted upper and lower-tailed two-sample z-tests using manual calculations and the BDSA package in R to compare caffeine content and calorie count between two samples (coffee and energy drinks, coffee and other drinks). These tests are appropriate for comparing means between two samples and are relevant to our research questions.</p>
-        <p>Central Limit theorem (CLT) states that the distribution of sample resembles the normal distribution if sample size is &gt; 30. Since the size of our samples is greater than 30, the distribution resembles the normal distribution. Hence z test is the ideal test statistic. We also set our significance level (𝜶) to 0.05 (5%). If the p-value from the Two sample z-test ≤ α, then we will reject our null hypothesis else there is no strong evidence to reject the null hypothesis.</p>
+        <p>Central Limit theorem (CLT) states that the distribution of sample means resembles the normal distribution if sample size is &gt; 30. Since the size of our samples is greater than 30, the distribution resembles the normal distribution. Hence z test is the ideal test statistic. We also set our significance level (𝜶) to 0.05 (5%). If the p-value from the Two sample z-test ≤ α, then we will reject our null hypothesis else there is no strong evidence to reject the null hypothesis.</p>
         <p>p-value: It is the probability, calculated given that the null hypothesis is true, of getting the value of the test statistic as extreme as the value from the sample.</p>
         <p>Significance level (𝜶): It is a value such that the null hypothesis is rejected if p-value ≤ α, and cannot be rejected if p-value &gt; α.</p>
         <p>Upper tailed test: Extreme values are located in the upper tail of the distribution. p-value = 1 – pnorm(z)</p>
         <p>Lower tailed test: Extreme values are located in lower tail of the distribution. p-value = pnorm(z)</p>
+        <div class="cleaning-image-container">
+            <div class="thumbnail" onclick="expandImage('assets/cmc12.png')">
+                <img src="assets/cmc12.png" alt="hsilcs">
+            </div>
+        </div>
         <p>Z statistic for two samples - Manual calculation:</p>
         <div class="cleaning-image-container">
             <div class="thumbnail" onclick="expandImage('assets/cmc4.png')">
