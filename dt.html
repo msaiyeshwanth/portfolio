@@ -171,6 +171,19 @@
         <p>
             R(rpart) can perform Decision Tree on mixed labeled data (quantitative and qualitative) whereas in Python (Sklearn), data must be quantitative and labeled. 
         </p>
+        <p>
+            <ol>
+                <li>
+                    In sklearn, for classification tasks (DecisionTreeClassifier), the default criterion is 'gini', which refers to the Gini impurity. 
+                </li>
+                <li>
+                    In sklearn, for regression tasks (DecisionTreeRegressor), the default criterion is 'mse', which stands for Mean Squared Error. 
+                </li>
+                <li>
+                    In rpart, the default splitting criterion for regression trees is "anova" (analysis of variance), while for classification trees, it's "gini" or "information gain" (using the deviance).
+                </li>
+            </ol>
+        </p>
         <ol>
             <h3><li>Before Transformation:</li></h3> 
             <p>
