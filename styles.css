@@ -714,9 +714,14 @@ table{
     background: #007BFF;
 }
 
+.infovizimg{
+    max-width: 70%;
+    max-height: 50%; 
+    margin: 50px auto; 
+    display: block;
+}
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
     .nav-links {
         display: none;
         flex-direction: column;
@@ -794,6 +799,12 @@ table{
         margin: 50px auto; 
         display: block;
     }
+    .infovizimg{
+        max-width: 100%;
+        max-height: 100%; 
+        margin: 50px auto; 
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -863,6 +874,12 @@ table{
     .clustering-overview-images{
         max-width: 90%;
         max-height: 90%; 
+        margin: 50px auto; 
+        display: block;
+    }
+    .infovizimg{
+        max-width: 100%;
+        max-height: 100%; 
         margin: 50px auto; 
         display: block;
     }
