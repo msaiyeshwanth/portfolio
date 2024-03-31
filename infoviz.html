@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Yeshwanth Mekala's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="indexbody">
+    <div class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mywork.html">My Work</a></li>
+                    <li class="dropdown">
+                        <a href="introduction.html" class="dropdown-btn">Machine Learning</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="motivationandpreviouswork.html">Motivation and Previous Work</a>
+                            <a href="DataPrepEDA.html">DataPrep/EDA</a>
+                            <div class="dropdown models-dropdown">
+                                <a href="clustering.html" class="dropdown-btn">Models</a>
+                                <div class="dropdown-content">
+                                    <a href="clustering.html">Clustering</a>
+                                    <a href="arm.html">ARM</a>
+                                    <a href="dt.html">DT</a>
+                                    <a href="nb.html">NB</a>
+                                    <a href="svm.html">SVM</a>
+                                    <a href="regression.html">Regression</a>
+                                    <a href="nn.html">NN</a>
+                                </div>
+                            </div>
+                            <a href="conclusions.html">Conclusions</a>
+                            <a href="codeanddata.html">Code and Data</a>
+                        </div>
+                    </li>                    
+                    <li><a href="infoviz.html" class="active">Info Viz</a></li>
+                    <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+   
+    <section>
+        <div class="container">
+            <div id="imageModal" class="modal" onclick="closeImageModal();">
+                <div class="modal-content" onclick="event.stopPropagation();">
+                    <span class="close" onclick="closeImageModal();">&times;</span>
+                    <img id="expandedImage" src="" alt="Expanded Image">
+                </div>
+            </div>
+            <h1 style="text-align: center; margin-bottom: 25px;">Information Visualization</h1>
+            <h1>Chart-1:</h1>
+            <h3>Source:</h3>
+            <a href="https://theconversation.com/us-election-two-graphs-show-how-young-voters-influence-presidential-results-as-biden-gets-poll-boost-226350" target="_blank"  style="margin-top: 10px;">The relationship between voting for the Democrats and age in US presidential elections from 1972 to 2020</a>
+            <h3>Context:</h3>
+            <p>
+                <ol>
+                    <strong><li>
+                        Why: why was this chart created (by the chart creators)?
+                    </li></strong>
+                    <p>
+                        To show the influence of young voters (under 25) on presidential election results, particularly in the context of a poll boost for Joe Biden.
+                    </p>
+                    <strong>
+                        <li>
+                            Who: who was this chart created for?
+                        </li>
+                    </strong>
+                    <p>
+                        The target audience are public, political analysts, journalists, and policymakers interested in understanding the dynamics of US elections.
+                    </p>
+                    <strong>
+                        <li>
+                            What: what did the chart creators want the target audience to know/do?
+                        </li>
+                    </strong>
+                    
+                    <p>
+                        About trends and patterns that show the increasing significance of young voters (under 25) in shaping election results over time.
+                    </p>
+                    <strong>
+                        <li>
+                            How: what data/data source did the chart creators use (if you know)?
+                        </li>
+                    </strong>
+                    
+                    <p>
+                        The data is sourced from the American National Election Study (ANES).
+                    </p>
+                </ol>
+            </p>
+            <h3>Before:</h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/b1.png')">
+                    <img src="assets/b1.png" alt="b1">
+                </div>
+            </div>
+            <h3>After:</h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/after1.png')">
+                    <img src="assets/after1.png" alt="b1">
+                </div>
+            </div>
+           <h3>Improvements Made to the Chart:</h3>
+           <p>
+            <ol>
+                <li>Removed the chart border
+                </li>
+                <li>
+                    Removed the grid lines
+                </li>
+                <li>
+                    Updated the X and Y axis labels for better understanding and to reduce the usage of percentage while annotating in next steps
+                </li>
+                <li>
+                    Removed the legend 
+                </li>
+                <li>
+                    Leveraged the Gestalt principle of proximity and kept the data labels right next to the data they describe
+                </li>
+                <li>
+                    Leveraged the Gestalt principle of similarity and applied the same color to the data labels as the data they describe
+                </li>
+                <li>
+                    Made the data standout by using markers and annotation to shift the focus on to the right side
+                </li>
+            </ol>
+            <h3>Pre-attentive attributes used:</h3>
+            <ol>
+                <li>
+                    Color - Dark Blue Color for Young Voters label and annotations
+                </li>
+                <li>
+                    Color - Grey color for Old Voters label and annotations
+                </li>
+                <li>
+                    Shape - Circle shape marker on the line
+                </li>
+                <li>
+                    Size - final marker for both young and old voters 
+                </li>
+                <li>
+                    Size - final annotation for both young and old voters
+                </li>
+                <li>
+                    Bold - Final marker and annotation
+                </li>
+                <li>
+                    Bold - Young Voters and Old Voters label
+                </li>
+            </ol>
+
+           </p>
+
+
+           <h1>Chart-2:</h1>
+            <h3>Source:</h3>
+            <a href="https://www.healthdata.org/news-events/insights-blog/acting-data/gun-violence-united-states-outlier" target="_blank"  style="margin-top: 10px;">On gun violence, the United States is an outlier</a>
+            <h3>Context:</h3>
+            <p>
+                <ol>
+                    <strong><li>
+                        Why: why was this chart created (by the chart creators)?
+                    </li></strong>
+                    <p>
+                        To understand percentage of childhood deaths caused by firearms among high-income countries with populations over 10 million in 2021.                    </p>
+                    <strong>
+                        <li>
+                            Who: who was this chart created for?
+                        </li>
+                    </strong>
+                    <p>
+                        The chart was likely created for policymakers, public health officials, researchers, and the public interested in understanding and addressing firearm violence.
+                    </p>
+                    <strong>
+                        <li>
+                            What: what did the chart creators want the target audience to know/do?
+                        </li>
+                    </strong>
+                    
+                    <p>
+                        How much gun violence accounts to childhood deaths in different high-income countries with populations over 10 million in 2021. creators aimed to emphasize the importance of addressing gun violence as a public health issue.
+                    </p>
+                    <strong>
+                        <li>
+                            How: what data/data source did the chart creators use (if you know)?
+                        </li>
+                    </strong>
+                    
+                    <p>
+                        The data source is Scott Glenn from the Institute for Health Metrics and Evaluation (IHME), who is listed as a data specialist in the article. The specific data points regarding firearm homicide rates in various countries around the world were likely obtained from public health databases, governmental reports, and other relevant sources.
+                    </p>
+                </ol>
+            </p>
+            <h3>Before:</h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/b2.png')">
+                    <img src="assets/b2.png" alt="b1">
+                </div>
+            </div>
+            <h3>After:</h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/after2.png')">
+                    <img src="assets/after2.png" alt="b1">
+                </div>
+            </div>
+           <h3>Improvements Made to the Chart:</h3>
+           <p>
+            <ol>
+                <li>Removed the chart border
+                </li>
+                <li>
+                    Reduced the cluttering by combining countries with significantly less values into others
+                </li>
+                <li>
+                    Removed the X axis and directly annotated values.
+                </li>
+                <li>
+                    Added the X axis label at the top
+                </li>
+                <li>
+                    Changed the title to boost the signal
+                </li>
+                <li>
+                    Leveraged the Gestalt principle of similarity and applied the same color to the title to match with the outlier.
+                </li>
+            </ol>
+            <h3>Pre-attentive attributes used:</h3>
+            <ol>
+                <li>
+                    Color – used Crimson (matches with death) color to indicate the outlier
+                </li>
+                <li>
+                    Color – used light grey color to suppress the noise
+                </li>
+                <li>
+                    Color – Used Crimson color for the title to match with the outlier
+                </li>
+                <li>
+                    Size – used larger size for outlier annotation
+                </li>
+                <li>
+                    Bold – used bold for outlier annotation
+                </li>
+                <li>
+                    Color – used white color to make annotations visible
+                </li>
+                <li>
+                    Color – used grey for x axis label to shift attention from the title to the outlier for the continuity
+                </li>
+            </ol>
+
+           </p>
+
+           <h1>Chart-3:</h1>
+            <h3>Source:</h3>
+            <a href="Approximately what percentage of your increased costs are you passing on to your customers?" target="_blank"  style="margin-top: 10px;">Approximately what percentage of your increased costs are you passing on to your customers?</a>
+            <h3>Context:</h3>
+            <p>
+                <ol>
+                    <strong><li>
+                        Why: why was this chart created (by the chart creators)?
+                    </li></strong>
+                    <p>
+                        To visually represent how logistics managers are planning to cut their manufacturing orders for next three months
+                    </p>
+                    <strong>
+                        <li>
+                            Who: who was this chart created for?
+                        </li>
+                    </strong>
+                    <p>
+                        It was likely created for stakeholders interested in understanding the health of the manufacturing sector and its implications for the broader economy. This may include policymakers, economists, investors, business leaders, and analysts.
+                    </p>
+                    <strong>
+                        <li>
+                            What: what did the chart creators want the target audience to know/do?
+                        </li>
+                    </strong>
+                    
+                    <p>
+                        To understand the current condition of manufacturing orders for next three months.
+                    </p>
+                    <strong>
+                        <li>
+                            How: what data/data source did the chart creators use (if you know)?
+                        </li>
+                    </strong>
+                    
+                    <p>
+                        The data is sourced from the CNBC Supply Chain Survey conducted among logistics managers representing various organizations.
+                    </p>
+                </ol>
+            </p>
+            <h3>Before:</h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/b3.png')">
+                    <img src="assets/b3.png" alt="b1">
+                </div>
+            </div>
+            <h3>After:</h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/after3.png')">
+                    <img src="assets/after3.png" alt="b1">
+                </div>
+            </div>
+           <h3>Improvements Made to the Chart:</h3>
+           <p>
+            <ol>
+                <li>Converted the pie chart into horizontal bar chart to reduce cluttering
+
+                </li>
+                <li>
+                    Did not add border
+                </li>
+                <li>
+                    Removed the X axis and directly annotated values.
+                </li>
+                <li>
+                    Added the X axis label at the top
+                </li>
+                <li>
+                    Modified Y axis values to reduce noise
+                </li>
+                <li>
+                    Added percentage to the label to reduce noise
+                </li>
+                <li>
+                    Changed the title to boost the signal
+                </li>
+                <li>
+                    Leveraged the Gestalt principle of similarity and applied the same color to the title to match with the 0 or no cuts.
+                </li>
+            </ol>
+            <h3>Pre-attentive attributes used:</h3>
+            <ol>
+                <li>
+                    Color – Green to show that 40% of logistics managers are not cutting the orders for the next three months
+                </li>
+                <li>
+                    Color – light grey to reduce noise and to focus on green color
+                </li>
+                <li>
+                    Color – Green color for the title to match with the signal/1st bar
+                </li>
+                <li>
+                    Size – used larger size for annotation in the signal/1st bar
+                </li>
+                <li>
+                    Bold – used bold for annotation in the signal/1st bar
+                </li>
+                <li>
+                    Color – used white color to make annotations visible
+                </li>
+                <li>
+                    Color – used grey for x axis label to shift attention from the title to the signal/1st bar for continuity
+                </li>
+            </ol>
+
+           </p>
+
+        </div>
+    </section>
+
+    <div>
+        <div class="container" id = 'homecontact'>
+            <h1>Contact Me</h1>
+            <p>Feel free to connect with me and ask questions or collaborate!</p>
+        </div>
+        <div id = 'homecontacticons'>
+            <a href="mailto: yesh20@icloud.com" target="_blank">
+                <img src="assets/mail.png" alt="Icon 1">
+            </a>
+            <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                <img src="assets/linkedin.webp" alt="Icon 2">
+            </a>
+            <a href="https://github.com/msaiyeshwanth" target="_blank">
+                <img src="assets/github.png" alt="Icon 3">
+            </a>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
+            <h2>Contact Me</h2>
+            <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+            <div id = 'homecontacticons'>
+                <a href="mailto: yesh20@icloud.com" target="_blank">
+                    <img src="assets/mail.png" alt="Icon 1">
+                </a>
+                <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                    <img src="assets/linkedin.webp" alt="Icon 2">
+                </a>
+                <a href="https://github.com/msaiyeshwanth" target="_blank">
+                    <img src="assets/github.png" alt="Icon 3">
+                </a>
+            </div>
+        </div>
+    </div>     
+</div>           
+    <script src="script.js"></script>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links")
+        var tabcontents = document.getElementsByClassName("tab-contents")
+
+        function opentab(tabname){
+            for (tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for (tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+</body>
+</html>
