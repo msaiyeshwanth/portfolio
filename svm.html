@@ -48,9 +48,77 @@
         </div>
     </header>
 
-  <section class="svm-section">
+<section class="svm-section">
     <div class="container">
-        <p>Coming soon!</p>
+        <div id="imageModal" class="modal" onclick="closeImageModal();">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeImageModal();">&times;</span>
+                <img id="expandedImage" src="" alt="Expanded Image">
+            </div>
+        </div>
+        <h1 style="text-align: center; margin-bottom: 25px;">SUPPORT VECTOR MACHINE (SVM)</h1>
+        <h1>OVERVIEW</h1>
+        <P>
+            Support Vector Machiness are a popular supervised learning algorithm used for both classification and regression tasks in machine learning.
+        </P>
+        <p>
+            They are linear seperators as them find a linear decision boundary that seperates the data points into differenct classes. This decision boundary is defined by a hyperplane in the feature space. It can only seperate two categories. For multiple categories, atleast 2 SVM's are required. 
+        </p>
+        <img src="assets/svm1.png" alt="svm1" class="clustering-overview-images">
+
+        <h3>Kernel:</h3>
+        <p>
+            SVMs use Kernel which enables it to seperate data which is not linearly seperable in its dimensional space and finds a dimensional space where it is linearly seperable.
+        </p>
+        <p>
+            Suppose we have a function K(xi, xj) = φ(xi)  dot φ(xj).
+
+        </p>
+        <p>
+            K is called a Kernel function. 
+            The Kernel function provides the dot product in another space. 
+        </p>
+        <img src="assets/svm3.jpg" alt="svm3" class="clustering-overview-images">
+
+        <p>
+            If we have n points in our dataset, the SVM needs only the dot product of each pair of points to find a classifier. 
+This is also true when we want to project data to higher dimensions. We don’t need to provide the SVM with exact projections; we only need to give it the dot product between all pairs of points in the projected space.
+This is relevant because this is exactly what kernels do. A kernel, short for kernel function, takes as input two points in the original space, and directly gives us the dot product in the projected space.
+        </p>
+        <p>
+            <ol>
+                <li>
+                    L as well as the decision boundary equation only depend on the dot products of vectors. 
+
+                </li>
+                <li>
+                    Therefore, to optimize, we only need φ(xi) dot φ(xj) for all xk and for any kernel, φ
+
+                </li>
+                <li>
+                    For the decision boundary, all we need is: φ(xi) dot (φ(xnew)) for any kernel φ. Therefore – we only need dot products. 
+
+                </li>
+            </ol>
+        </p>
+        <p>
+            There are different types of Kernels.
+        </p>
+        <img src="assets/svm2.png" alt="svm2" class="clustering-overview-images">
+        
+        <h3>Polynomial Kernel:</h3>
+        <img src="assets/svm4.PNG" alt="svm4" class="clustering-overview-images">
+
+        <h3>Example:</h3>
+        <img src="assets/svm6.PNG" alt="svm6" class="clustering-overview-images">        
+
+        <h3>RBF (Radial Basis Function) Kernel:</h3>
+        <img src="assets/svm5.PNG" alt="svm5" class="clustering-overview-images">
+
+
+
+
+
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">
