@@ -56,13 +56,13 @@
                 <img id="expandedImage" src="" alt="Expanded Image">
             </div>
         </div>
-        <h1 style="text-align: center; margin-bottom: 25px;">SUPPORT VECTOR MACHINE (SVM)</h1>
+        <h1 style="text-align: center; margin-bottom: 25px;">SUPPORT VECTOR MACHINE</h1>
         <h1>OVERVIEW</h1>
         <P>
-            Support Vector Machiness are a popular supervised learning algorithm used for both classification and regression tasks in machine learning.
+            Support Vector Machines are a popular supervised learning algorithm used for both classification and regression tasks in machine learning.
         </P>
         <p>
-            They are linear seperators as them find a linear decision boundary that seperates the data points into differenct classes. This decision boundary is defined by a hyperplane in the feature space. It can only seperate two categories. For multiple categories, atleast 2 SVM's are required. 
+            They are linear seperators as them find a linear decision boundary that seperates the data points into different classes. This decision boundary is defined by a hyperplane in the feature space. It can only seperate two categories. For multiple categories, atleast 2 SVM's are required. 
         </p>
         <img src="assets/svm1.png" alt="svm1" class="clustering-overview-images">
 
@@ -71,9 +71,11 @@
             SVMs use Kernel which enables it to seperate data which is not linearly seperable in its dimensional space and finds a dimensional space where it is linearly seperable.
         </p>
         <p>
-            Suppose we have a function K(xi, xj) = φ(xi)  dot φ(xj).
+            Suppose we have a function:
 
         </p>
+        <img src="assets/svm7.jpg" alt="svm7" class="clustering-overview-images">
+
         <p>
             K is called a Kernel function. 
             The Kernel function provides the dot product in another space. 
@@ -116,9 +118,118 @@ This is relevant because this is exactly what kernels do. A kernel, short for k
         <img src="assets/svm5.PNG" alt="svm5" class="clustering-overview-images">
 
 
+        <h1>PLAN</h1>
+        <p>
+            <ol>
+                <li>
+                    Load the cleaned Denver weather dataset, preprocess it to label weather descriptions, convert features into Category/Factor type, and filter data for Denver only.
+                </li>
+                <li>
+                    Split the dataset into training and testing sets using stratified sampling stratified sampling in python and random sampling without replacement in R to ensure proportional representation of each class in both sets.
+                </li>
+                <li>
+                    Train SVM Classifier models with different kernels and cost combinations, evaluate accuracy, and generate confusion matrices.
+                </li>
+            </ol>
+        </p>
 
+        <h1>DATA PREPARATION</h1>
+        <p>
+            R(rpart) can perform Decision Tree on mixed labeled data (quantitative and qualitative) whereas in Python (Sklearn), data must be quantitative and labeled. 
+        </p>
+        <p>
+            <ol>
+                <li>
+                    In sklearn, for classification tasks (DecisionTreeClassifier), the default criterion is 'gini', which refers to the Gini impurity. 
+                </li>
+                <li>
+                    In sklearn, for regression tasks (DecisionTreeRegressor), the default criterion is 'mse', which stands for Mean Squared Error. 
+                </li>
+                <li>
+                    In rpart, the default splitting criterion for regression trees is "anova" (analysis of variance), while for classification trees, it's "gini" or "information gain" (using the deviance).
+                </li>
+            </ol>
+        </p>
+        <ol>
+            <h3><li>Before Transformation:</li></h3> 
+            <p>
+                The below image shows the sample of data before transformation.
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
+                    <img src="assets/aftercleaning.png" alt="aftercleaning">
+                </div>
+            </div>
+            
+            <h3><li>After Filtering Denver Data:</li></h3>
+            <p>The below image shows the data after filtering city by Denver.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl1.png')">
+                    <img src="assets/clfcl1.png" alt="Filtering Denver Data">
+                </div>
+            </div>
 
+            <h3><li>After Transformation (Python):</li></h3>
+            <p>The below image shows the data after after After labelling (clear/not clear) the data for classification and changing its type to Category.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl2.png')">
+                    <img src="assets/clfcl2.png" alt="labelling">
+                </div>
+            </div>
 
+            <h3><li>After Transformation (R):</li></h3>
+            <p>The below image shows the labelling (clear/not clear) the data for classification and changing its type to Factor.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl3.png')">
+                    <img src="assets/clfcl3.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Splitting data into Train and Test set (Python):</li></h3>
+            <p>The below image shows train and test data created using stratified sampling to ensure that each class is represented proportionally in both sets. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl4.png')">
+                    <img src="assets/clfcl4.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Checking the balance of the Train and Test set (Python):</li></h3>
+            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl5.png')">
+                    <img src="assets/clfcl5.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Splitting data into Train and Test set (R):</li></h3>
+            <p>The below image shows train and test data created using Random sample without replacement. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl6.png')">
+                    <img src="assets/clfcl6.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Checking the balance of the Train and Test set (R):</li></h3>
+            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl7.png')">
+                    <img src="assets/clfcl7.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Classification Dataset:</li></h3>
+            <p><a href="https://drive.google.com/file/d/1-sNUYX2qMNrFjHfxhmGQW0UkSOkQZ5E3/view?usp=sharing" target="_blank">classificationdata.csv</a></p>
+        </ol>
+
+        <h1>CODE</h1>
+        <ol>
+            <h3><li>SVM (Python):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/DT%20(py).ipynb" target="_blank">SVM (py).ipynb</a></p>
+
+            <h3><li>SVM (R):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/DT%20(R).ipynb" target="_blank">SVM (R).ipynb</a></p>
+        </ol>
+    </div>
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">
