@@ -134,19 +134,14 @@ This is relevant because this is exactly what kernels do. A kernel, short for k
         </p>
 
         <h1>DATA PREPARATION</h1>
-        <p>
-            R(rpart) can perform Decision Tree on mixed labeled data (quantitative and qualitative) whereas in Python (Sklearn), data must be quantitative and labeled. 
-        </p>
+
         <p>
             <ol>
                 <li>
-                    In sklearn, for classification tasks (DecisionTreeClassifier), the default criterion is 'gini', which refers to the Gini impurity. 
+                   SVM require labeled data for training.                
                 </li>
                 <li>
-                    In sklearn, for regression tasks (DecisionTreeRegressor), the default criterion is 'mse', which stands for Mean Squared Error. 
-                </li>
-                <li>
-                    In rpart, the default splitting criterion for regression trees is "anova" (analysis of variance), while for classification trees, it's "gini" or "information gain" (using the deviance).
+                    SVMs specifically require numerical (Quantitative) data because they rely on mathematical computations to find the optimal hyperplane that best separates the different classes in the feature space. This hyperplane is determined by maximizing the margin between the classes, which involves calculating distances and dot products between data points.
                 </li>
             </ol>
         </p>
@@ -177,14 +172,6 @@ This is relevant because this is exactly what kernels do. A kernel, short for k
                 </div>
             </div>
 
-            <h3><li>After Transformation (R):</li></h3>
-            <p>The below image shows the labelling (clear/not clear) the data for classification and changing its type to Factor.</p>
-            <div class="cleaning-image-container">
-                <div class="thumbnail" onclick="expandImage('assets/clfcl3.png')">
-                    <img src="assets/clfcl3.png" alt="labelling">
-                </div>
-            </div>
-
             <h3><li>Splitting data into Train and Test set (Python):</li></h3>
             <p>The below image shows train and test data created using stratified sampling to ensure that each class is represented proportionally in both sets. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
             <div class="cleaning-image-container">
@@ -201,22 +188,6 @@ This is relevant because this is exactly what kernels do. A kernel, short for k
                 </div>
             </div>
 
-            <h3><li>Splitting data into Train and Test set (R):</li></h3>
-            <p>The below image shows train and test data created using Random sample without replacement. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
-            <div class="cleaning-image-container">
-                <div class="thumbnail" onclick="expandImage('assets/clfcl6.png')">
-                    <img src="assets/clfcl6.png" alt="labelling">
-                </div>
-            </div>
-
-            <h3><li>Checking the balance of the Train and Test set (R):</li></h3>
-            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
-            <div class="cleaning-image-container">
-                <div class="thumbnail" onclick="expandImage('assets/clfcl7.png')">
-                    <img src="assets/clfcl7.png" alt="labelling">
-                </div>
-            </div>
-
             <h3><li>Classification Dataset:</li></h3>
             <p><a href="https://drive.google.com/file/d/1-sNUYX2qMNrFjHfxhmGQW0UkSOkQZ5E3/view?usp=sharing" target="_blank">classificationdata.csv</a></p>
         </ol>
@@ -225,10 +196,68 @@ This is relevant because this is exactly what kernels do. A kernel, short for k
         <ol>
             <h3><li>SVM (Python):</li></h3>
             <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/DT%20(py).ipynb" target="_blank">SVM (py).ipynb</a></p>
-
-            <h3><li>SVM (R):</li></h3>
-            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/DT%20(R).ipynb" target="_blank">SVM (R).ipynb</a></p>
         </ol>
+
+        <h1>RESULTS</h1>
+
+        <ol>
+            <h3><li>Accuracy:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/svm8.png')">
+                    <img src="assets/svm8.png" alt="accuracy (Python)">
+                </div>
+            </div>
+            <p>
+                The provided results show the accuracy scores of Support Vector Machine (SVM) models trained with different kernels (linear, RBF, polynomial) and different values of the cost function 𝐶.
+            </p>
+            <p>
+                SVM model with Polynomial Kernel and Cost function achieved highest accuracy of 70.1%
+            </p>
+
+            <h3><li>Confusion Matrix:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/svm9.png')">
+                    <img src="assets/svm9.png" alt="cm1">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm10.png')">
+                    <img src="assets/svm10.png" alt="cm2">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm11.png')">
+                    <img src="assets/svm11.png" alt="cm3">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm12.png')">
+                    <img src="assets/svm12.png" alt="cm4">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm13.png')">
+                    <img src="assets/svm13.png" alt="cm1">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm14.png')">
+                    <img src="assets/svm14.png" alt="cm2">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm15.png')">
+                    <img src="assets/svm15.png" alt="cm3">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm16.png')">
+                    <img src="assets/svm16.png" alt="cm4">
+                </div>
+                <div class="thumbnail" onclick="expandImage('assets/svm17.png')">
+                    <img src="assets/svm17.png" alt="cm4">
+                </div>
+            </div>
+            <strong>
+                <p>
+                    1. Linear, c = 1   2. Linear, c = 10  3. Linear, c = 50 <br> 4. RBF, c = 1  5. RBF, c = 10  6. RBF, c = 50 <br> 7. Polynomial, c = 0.0001  8. Polynomial, c = 0.0005  9. Polynomial, c = 0.001
+                </p>
+            </strong>
+            <p>The above images displays confusion matrix of 8 different SVM models trained with different Kernel and Cost function.</p>
+            
+            <h1>CONCLUSION</h1>
+
+            <P>
+                This study focuses on clear weather prediction in Denver and its practical consequences for daily life. Understanding when the weather will clear is critical for a wide range of activities. From organizing outside gatherings like picnics and sports games to scheduling building projects and outdoor maintenance jobs. Clear weather also plays an important role in trip planning because it provides safer driving conditions and easier flights. Individuals and organisations can make better informed decisions by properly anticipating clear weather. It results in more efficient and enjoyable experiences in both personal and professional settings. Finally, the study use weather data to improve everyday life and boost community well-being.            </P>
+
+        </ol>
+
     </div>
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
