@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Networks</title>
+    <title>Neural Network</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -49,7 +49,192 @@
 
   <section class="nn-section">
     <div class="container">
-        <p>Coming soon!</p>
+        <div id="imageModal" class="modal" onclick="closeImageModal();">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeImageModal();">&times;</span>
+                <img id="expandedImage" src="" alt="Expanded Image">
+            </div>
+        </div>
+        <h1 style="text-align: center; margin-bottom: 25px;">Neural Network</h1>
+        <h1>OVERVIEW</h1>
+
+        <p>
+            A feedforward neural network (FFNN) is a type of artificial neural network (ANN) where information flows in one direction, from the input layer through one or more hidden layers to the output layer, without any feedback loops. This architecture is widely used for various machine learning tasks, including classification, regression, and pattern recognition.
+        </p>
+
+        <img src="assets/nn1.png" alt="nn1" class="clustering-overview-images">
+
+
+        <h3>Input Layer:</h3>
+        <p>
+            The input layer is where data is fed into the network. Each node in the input layer represents a feature or attribute of the input data. Each neuron in this layer corresponds to one feature.
+        </p>
+        <h3>Hidden Layer:</h3>
+        <p>
+            Between the input and output layers, there can be one or more hidden layers. Each hidden layer consists of multiple neurons (nodes), and each neuron applies a weighted sum of inputs followed by an activation function to produce an output. The outputs from the neurons in one hidden layer serve as inputs to the next hidden layer or the output layer.
+        </p>
+        <h3>Output Layer: </h3>
+        <p>
+            The output layer produces the final prediction or classification based on the information processed through the hidden layers. The number of nodes in the output layer depends on the type of problem being solved. For example, in binary classification, there may be one node representing the probability of belonging to one class, while in multi-class classification, there can be multiple nodes representing the probabilities of each class.
+        </p>
+        <h3>
+            Weights and Activation Functions: 
+        </h3>
+        <p>
+            The connections between neurons in different layers are associated with weights, which are adjusted during the training process to minimize the error between predicted and actual outputs. Each neuron typically applies an activation function to the weighted sum of its inputs to introduce non-linearity into the network, enabling it to learn complex patterns in the data.
+        </p>
+        <h3>
+            Forward Pass: 
+        </h3>
+        <p>
+            During the forward pass, input data is propagated through the network layer by layer, with each layer applying transformations to the input until the final output is obtained. This process is called forward propagation.
+        </p>
+        <h3>
+            Training:
+        </h3>
+        <p>
+            During training, the network learns to adjust its weights based on a loss function that measures the difference between predicted and actual outputs. This is typically done using optimization algorithms such as gradient descent, which iteratively updates the weights to minimize the loss.
+        </p>
+        <h3>Activation Function:</h3>
+        <p>
+            It determines the output of a neuron in a neural network, based on its input. It introduces non-linearity into the network, allowing it to learn complex patterns in the data.
+        </p>
+
+        <img src="assets/nn6.png" alt="nn6" class="clustering-overview-images">
+
+        <h1>PLAN</h1>
+        <p>
+            <ol>
+                <li>
+                    Load the cleaned Denver weather dataset, pre process it to label weather descriptions, convert features into Category/Factor type, and filter data for Denver only.
+                </li>
+                <li>
+                    Split the dataset into training and testing sets using stratified sampling stratified sampling in python and random sampling without replacement in R to ensure proportional representation of each class in both sets.
+                </li>
+                <li>
+                    Train Feed Forward Neural Network model with input layer, one hidden Layer with 3 units, output layer and evaluate accuracy, and generate confusion matrices.
+                </li>
+            </ol>
+        </p>
+
+
+        <h1>DATA PREPARATION</h1>
+
+        <p>
+            <ol>
+                <li>
+                   Feed Forward Neural Network require labeled data for training.                
+                </li>
+                <li>
+                    They also require label in binary form i.e., 0 or 1.    
+                </li>
+            </ol>
+        </p>
+        <ol>
+            <h3><li>Before Transformation:</li></h3> 
+            <p>
+                The below image shows the sample of data before transformation.
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/aftercleaning.png')">
+                    <img src="assets/aftercleaning.png" alt="aftercleaning">
+                </div>
+            </div>
+            
+            <h3><li>After Filtering Denver Data:</li></h3>
+            <p>The below image shows the data after filtering city by Denver.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl1.png')">
+                    <img src="assets/clfcl1.png" alt="Filtering Denver Data">
+                </div>
+            </div>
+
+            <h3><li>After Transformation (Python):</li></h3>
+            <p>The below image shows the data after after After labelling (clear/not clear) the data for classification and changing its type to Category.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl2.png')">
+                    <img src="assets/clfcl2.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Splitting data into Train and Test set (Python):</li></h3>
+            <p>The below image shows train and test data created using stratified sampling to ensure that each class is represented proportionally in both sets. Train and test sets are disjoint to ensure that the model is evaluated on data it hasn't seen during training, enabling an unbiased assessment of its performance.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl4.png')">
+                    <img src="assets/clfcl4.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>Checking the balance of the Train and Test set (Python):</li></h3>
+            <p>The below image shows the distribution of labels in the  Train and Test set. They are well balanced.</p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/clfcl5.png')">
+                    <img src="assets/clfcl5.png" alt="labelling">
+                </div>
+            </div>
+
+            <h3><li>One Hot Encoding for Label:</li></h3>
+            <p>
+                The below image displays labels after converting into binary form using one hot encoding.
+            </p>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nn2.png')">
+                    <img src="assets/nn2.png" alt="labelling">
+                </div>
+            </div>
+
+
+            <h3><li>Classification Dataset:</li></h3>
+            <p><a href="https://drive.google.com/file/d/1-sNUYX2qMNrFjHfxhmGQW0UkSOkQZ5E3/view?usp=sharing" target="_blank">classificationdata.csv</a></p>
+        </ol>
+
+        <h1>CODE</h1>
+        <ol>
+            <h3><li>Neural Network (Python):</li></h3>
+            <p><a href="https://github.com/msaiyeshwanth/weatherdatainsights/blob/main/NN.ipynb0" target="_blank">NN (py).ipynb</a></p>
+        </ol>
+
+        <h1>RESULTS</h1>
+        <ol>
+            <h3>
+                <li>Architecture of the Feed Forward Neural Network:</li>
+            </h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nn5.PNG')">
+                    <img src="assets/nn5.PNG" alt="accuracy (Python)">
+                </div>
+            </div>            <p>
+                The above image displays architecture of the Feed Forward Neural Network model used. It has one input layer, 1 hidden layer with 3 hidden units and with ReLU activation function and an output layer with Sigmoid activation function.
+            </p>
+
+            <h3><li>Accuracy:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nn3.png')">
+                    <img src="assets/nn3.png" alt="accuracy (Python)">
+                </div>
+            </div>
+            <p>
+                Feed Forward Neural Network achieved an accuracy of 55.72%.
+            </p>
+
+            <h3><li>Confusion Matrix:</li></h3>
+            <div class="cleaning-image-container">
+                <div class="thumbnail" onclick="expandImage('assets/nn4.png')">
+                    <img src="assets/nn4.png" alt="nn4">
+                </div>
+            </div>
+            <p>
+                The above images displays confusion matrix of Feed Forward Neural Network.
+            </p>
+        </ol>
+
+        <h1>CONCLUSION</h1>
+
+            <P>
+                This study focuses on clear weather prediction in Denver and its practical consequences for daily life. Understanding when the weather will clear is critical for a wide range of activities. From organizing outside gatherings like picnics and sports games to scheduling building projects and outdoor maintenance jobs. Clear weather also plays an important role in trip planning because it provides safer driving conditions and easier flights. Individuals and organizations can make better informed decisions by properly anticipating clear weather. It results in more efficient and enjoyable experiences in both personal and professional settings. The study's overall findings demonstrate the value of predictive modeling in precisely predicting clear weather, which eventually improves community well-being and resistance to weather-related issues. Through the utilization of these insights, individuals and organizations can enhance their decision-making abilities and guarantee safer and more pleasurable experiences for all stakeholders. Communities may improve their quality of life and resistance to weather-related changes by better understanding and preparing for weather-related concerns. This will create safer, more lively, and more sustainable settings for both locals and visitors.          
+            </P>
+    </div>
+
 </section>
 <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
     <div class="modal-content" onclick="event.stopPropagation();">
