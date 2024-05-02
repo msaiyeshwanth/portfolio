@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mywork.html">My Work</a></li>
+                    <li class="dropdown">
+                        <a href="introduction.html" class="dropdown-btn active">Machine Learning</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="motivationandpreviouswork.html">Motivation and Previous Work</a>
+                            <a href="DataPrepEDA.html">DataPrep/EDA</a>
+                            <div class="dropdown models-dropdown">
+                                <a href="clustering.html" class="dropdown-btn">Models</a>
+                                <div class="dropdown-content">
+                                    <a href="clustering.html">Clustering</a>
+                                    <a href="arm.html">ARM</a>
+                                    <a href="dt.html">DT</a>
+                                    <a href="nb.html">NB</a>
+                                    <a href="svm.html">SVM</a>
+                                    <!-- <a href="regression.html">Regression</a> -->
+                                    <a href="nn.html">NN</a>
+                                </div>
+                            </div>
+                            <a href="conclusions.html">Conclusions</a>
+                            <a href="codeanddata.html">Code and Data</a>
+                            <a href="researchquestions.html" class="active">Research Questions</a>
+                        </div>
+                    </li>
+                    <li><a href="infoviz.html">Info Viz</a></li>
+
+                    <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+  <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
+    <div class="modal-content" onclick="event.stopPropagation();">
+        <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
+        <h2>Contact Me</h2>
+        <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+            <input type="submit" value="Send">
+        </form>
+        <div id = 'homecontacticons'>
+            <a href="mailto: yesh20@icloud.com" target="_blank">
+                <img src="assets/mail.png" alt="Icon 1">
+            </a>
+            <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                <img src="assets/linkedin.webp" alt="Icon 2">
+            </a>
+            <a href="https://github.com/msaiyeshwanth" target="_blank">
+                <img src="assets/github.png" alt="Icon 3">
+            </a>
+        </div>
+    </div>
+</div>
+  <section class="introsection">
+    <div class="container">
+        <div class="text-container">
+            <h1 style="text-align: center; margin-bottom: 25px;">RESEARCH QUESTIONS</h1>
+            <img src="assets/questions.avif" alt="clouds" class="clustering-overview-images">
+
+            <ol>
+                <li>How do temperature and humidity vary over different time intervals in Denver (2017) within the dataset, and are there noticeable trends or anomalies?</li>
+                <strong><p>Answer:</p></strong>
+
+                <p>
+                    <ol>
+                        <li>Temperature starts to increase from January to July and then decreases gradually from July to November in Denver (2017)</li>
+                        <li>January is the coldest month and July is the hottest month.</li>
+                        <li>There is no significant pattern in Humidity.</li>
+                        <li>January and May recorded highest humidity and March recorded Lowest Humidity.</li>
+                    </ol>
+                </p>
+
+                <li>Which cities had the most days with a particular weather condition?</li>
+                <strong><p>Answer:</p></strong>
+                <p>
+                    <ol>
+                        <li>Las Vegas had most days with Clear weather</li>
+                        <li>Albuquerque had most days with Cloudy weather</li>
+                        <li>San Diego had most days with Foggy Weather</li>
+                        <li>Seattle had most days with Rainy weather</li>
+                        <li>Pittsburgh had most days with Snowy weather</li>
+                        <li>Miami had most days with Thunderstorm weather</li>
+                        <li>Los Angeles had most days with Other weather</li>
+                    </ol>
+                </p>
+                <li>Is there a statistically significant correlation between any two variables in the dataset, and if so, what is the nature of this relationship?</li>
+                <strong><p>Answer:</p></strong>
+                <p>
+                    <ol>
+                        <li>There is a weak negative correlation between Temperature and humidity, which suggests that as temperatures increase, humidity tends to decrease.</li>
+                        <li>There are no significant correlations between other variables.</li>
+                    </ol>
+                    
+                </p>
+
+                <li>Which group of cities have high snowy weather?</li>
+                <strong><p>Answer:</p></strong>
+
+                <p>
+                    Detroit, Minneapolis and Pittsburgh have frequent snowy weather.
+                </p>
+
+                <li>Which clustering algorithm is most effective in grouping cities?</li>
+                <strong><p>Answer:</p></strong>
+
+                <p>
+                    K-Means and Hierarchical clustering with Euclidean distance gave same and effective groupings. 
+                </p>
+
+                <li>Are there any meaningful insights about the co-occurrence of weather conditions in different cities that can be identified using association rule mining?</li>
+                <strong><p>Answer:</p></strong>
+
+                <p>
+                    <ol>
+                        <li>
+                            Las Vegas and Clear weather occurred together most times in the transactions that contains Las Vegas.
+                        </li>
+                        <li>
+                            Pittsburgh and Snowy weather occurred together most times in the transactions that contains Pittsburgh.
+                        </li>
+                    </ol>
+                </p>
+
+                <li>What are the best criterion and splitter parameters for Decision Tree?</li>
+                <strong><p>Answer:</p></strong>
+
+                <p>
+                    <ol>
+                        <li>
+                            Decision Tree with entropy criterion and best splitter achieved highest accuracy of 67.79%. (Python)
+                        </li>
+                        <li>
+                            Decision Tree with gini criterion has achieved highest accuracy of 67.98%. (R)
+                        </li>
+                    </ol>
+                </p>
+
+                <li>Which features has the most significant impact on the decision-making process when predicting weather conditions using decision trees?</li>
+                <strong><p>Answer:</p></strong>
+
+                <p>
+                    <ol>
+                        <li>
+                            Temperature is the most important feature. (Python)
+                        </li>
+                        <li>
+                            Humidity is the most important feature. (R)
+                        </li>
+                    </ol>
+                </p>
+
+                <li>What is the best Kernel and cost function combination for Support Vector Machine?</li>
+                <strong><p>Answer:</p></strong>
+                <p>
+                    SVM model with Polynomial Kernel and Cost function achieved highest accuracy of 70.1%
+                </p>
+
+
+                <li>How accurately can we predict clear weather conditions using different supervised learning algorithms, and which algorithm performs the best for this task?</li>
+                <strong><p>Answer:</p></strong>
+                <p>
+                    SVM model with Polynomial Kernel and Cost function achieved highest accuracy of 70.1%
+                </p>
+
+            </ol>
+        </div>
+    </div>
+  </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Thank you!</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
