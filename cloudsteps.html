@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudSteps: Personalized Steps Analytics on GCP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="indexbody">
+    <div class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-toggle" id="navToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mywork.html" class="active">My Work</a></li>
+                    <li class="dropdown">
+                        <a href="introduction.html" class="dropdown-btn">Machine Learning</a>
+                        <div class="dropdown-content">
+                            <a href="introduction.html">Introduction</a>
+                            <a href="motivationandpreviouswork.html">Motivation and Previous Work</a>
+                            <a href="DataPrepEDA.html">DataPrep/EDA</a>
+                            <div class="dropdown models-dropdown">
+                                <a href="clustering.html" class="dropdown-btn">Models</a>
+                                <div class="dropdown-content">
+                                    <a href="clustering.html">Clustering</a>
+                                    <a href="arm.html">ARM</a>
+                                    <a href="dt.html">DT</a>
+                                    <a href="nb.html">NB</a>
+                                    <a href="svm.html">SVM</a>
+                                    <!-- <a href="regression.html">Regression</a> -->
+                                    <a href="nn.html">NN</a>
+                                </div>
+                            </div>
+                            <a href="conclusions.html">Conclusions</a>
+                            <a href="codeanddata.html">Code and Data</a>
+                            <a href="researchquestions.html">Research Questions</a>
+                        </div>
+                    </li>
+                    <li><a href="infoviz.html">Info Viz</a></li>
+
+                    <li><a href="javascript:void(0);" onclick="openModal(); closeDropdown(); setActiveLink(this);" class="contact-btn">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <section class="clustering-section">
+        <div class="container">
+            <div id="imageModal" class="modal" onclick="closeImageModal();">
+                <div class="modal-content" onclick="event.stopPropagation();">
+                    <span class="close" onclick="closeImageModal();">&times;</span>
+                    <img id="expandedImage" src="" alt="Expanded Image">
+                </div>
+            </div>
+        <h1 style="text-align: center; margin-bottom: 25px;" class="sub-title">CloudSteps: Personalized Steps Analytics on GCP</h1>
+        <img src="assets/cs1.png" alt="Methodology" class="clustering-overview-images">
+        <a href="https://github.com/msaiyeshwanth/cloudsteps" target="_blank" class="btn">
+            Code Link
+        </a>
+       
+        <h1>1. Goal:</h1>
+        <p>
+            The goal of this project is to build a cloud-native, scalable, and efficient service for processing and analyzing Apple Health data, with a particular focus on steps data. The service generates personalized insights, such as weekly, monthly, and yearly averages of step counts, by utilizing various Google Cloud Platform (GCP) services for secure data processing and storage. The system provides users with a simple interface to upload their Apple Health data and retrieve meaningful Steps Analytics including Weekly, Monthly and Yearly trends and averages.
+        </p>
+        <h1>2. Methodology:</h1>
+        <img src="assets/cs2.png" alt="Methodology" class="clustering-overview-images">
+        <h1>Software Components</h1>
+
+    <h3>1. Flask Framework</h3>
+    <p><strong>Purpose:</strong> Provides a REST API for users to upload Apple Health files and retrieve analytics.</p>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Lightweight, easy to implement, and supports API creation.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Requires additional tools for scalability and robustness.</li>
+    </ul>
+
+    <h3>2. Google Cloud Storage</h3>
+    <p><strong>Purpose:</strong> Secure storage for raw Apple Health XML files.</p>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Reliable and scalable object storage solution.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Increased storage costs for larger datasets.</li>
+    </ul>
+
+    <h3>3. Google Pub/Sub</h3>
+    <p><strong>Purpose:</strong> Facilitates asynchronous communication between components.</p>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Real-time messaging, high scalability.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Slight latency during high loads.</li>
+    </ul>
+
+    <h3>4. Google Cloud Functions</h3>
+    <p><strong>Purpose:</strong> Processes XML files to extract and structure step data.</p>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Fully managed, event-driven execution.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Limited runtime (9 minutes per function).</li>
+    </ul>
+
+    <h3>5. Google BigQuery</h3>
+    <p><strong>Purpose:</strong> Stores and queries structured step data to generate trends and averages.</p>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>High-speed querying of large datasets.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Costs can increase with frequent queries.</li>
+    </ul>
+
+    <h3>6. Google Kubernetes Engine (GKE)</h3>
+    <p><strong>Purpose:</strong> Hosts containerized Flask applications.</p>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>High availability, scalability, and reliability.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Requires configuration and management of cluster resources.</li>
+    </ul>
+
+    <h3>7. Docker</h3>
+    <p><strong>Purpose:</strong> Containerizes Flask and supporting services for consistent deployments.</p>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Simplifies deployment across environments.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Takes time to understand how to set up.</li>
+    </ul>
+
+    <h3>8. Python Libraries</h3>
+    <ul>
+        <li><strong>Pandas:</strong> For data cleaning and aggregation.</li>
+        <li><strong>Plotly:</strong> For generating visualizations of step trends.</li>
+        <li><strong>xml.etree.ElementTree:</strong> For parsing Apple Health XML data.</li>
+    </ul>
+
+    <h1>Hardware Components</h1>
+
+    <h3>1. User Devices</h3>
+    <p><strong>Purpose:</strong> Apple devices (e.g., iPhones or Apple Watches) for collecting and exporting Apple Health data, especially Steps.</p>
+
+        <h1>
+            4. Results:
+        </h1>
+        <p>Weekly, monthly, and yearly step averages and trends.</p>
+        <img src="assets/cs3.png" alt="Methodology" class="clustering-overview-images">
+
+        <h1>5. Capabilities</h1>
+        <ul>
+            <li>Processes XML files into structured step data, generating trends and averages.</li>
+            <li>Scales efficiently with multiple concurrent uploads due to Kubernetes orchestration.</li>
+            <li>Offers intuitive, real-time visualizations of step trends using Plotly.</li>
+        </ul>
+
+        <h1>6. Limitations</h1>
+        <ul>
+            <li><strong>Upload Time:</strong> Systems take around 1 minute to upload an XML file of around 170 MB.</li>
+            <li><strong>Cloud Functions Timeout:</strong> Processing large XML files may exceed the 9-minute limit.</li>
+            <li><strong>Query Costs:</strong> Frequent or large-scale BigQuery queries can result in higher costs.</li>
+            <li><strong>Latency:</strong> High Pub/Sub message volumes may introduce slight delays.</li>
+        </ul>
+    </div>
+</section>
+    
+
+    <div>
+        <div class="container" id = 'homecontact'>
+            <h1>Contact Me</h1>
+            <p>Feel free to connect with me and collaborate to explore your data!</p>
+        </div>
+        <div id = 'homecontacticons'>
+            <a href="mailto: yesh20@icloud.com" target="_blank">
+                <img src="assets/mail.png" alt="Icon 1">
+            </a>
+            <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                <img src="assets/linkedin.webp" alt="Icon 2">
+            </a>
+            <a href="https://github.com/msaiyeshwanth" target="_blank">
+                <img src="assets/github.png" alt="Icon 3">
+            </a>
+        </div>
+    </div>
+
+
+    <div id="contactModal" class="modal" onclick="closeModal(); removeActiveLink();">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal(); removeActiveLink();">&times;</span>
+            <h2>Contact Me</h2>
+            <form action="mailto:yesh20@icloud.com" method="post" enctype="text/plain">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+            <div id = 'homecontacticons'>
+                <a href="mailto: yesh20@icloud.com" target="_blank">
+                    <img src="assets/mail.png" alt="Icon 1">
+                </a>
+                <a href="https://www.linkedin.com/in/sai-yeshwanth-mekala-061917176/" target="_blank">
+                    <img src="assets/linkedin.webp" alt="Icon 2">
+                </a>
+                <a href="https://github.com/msaiyeshwanth" target="_blank">
+                    <img src="assets/github.png" alt="Icon 3">
+                </a>
+            </div>
+        </div>
+    </div>     
+</div>           
+    <script src="script.js"></script>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links")
+        var tabcontents = document.getElementsByClassName("tab-contents")
+
+        function opentab(tabname){
+            for (tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for (tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+</body>
+</html>
