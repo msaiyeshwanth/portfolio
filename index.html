@@ -51,15 +51,49 @@
     <div id="home1">
         <div class="home1text">
             <p>Data Scientist and AI enthusiast</p>
-            <h1 id="typing-effect">Hey, I am <span>Sai Yeshwanth</span> <br> Mekala</h1>
+            <h1 id="typing-effect"></h1>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const text = "Hey, I am <span>Sai Yeshwanth</span> <br> Mekala";
+            const typingElement = document.getElementById("typing-effect");
+            let i = 0;
+            let isTag = false;
+            let tagBuffer = "";
+            let interval = 25;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    if (text[i] === "<") {
+                        isTag = true;
+                        tagBuffer = "";
+                    }
+                    if (isTag) {
+                        tagBuffer += text[i];
+                        if (text[i] === ">") {
+                            typingElement.innerHTML += tagBuffer;
+                            isTag = false;
+                        }
+                    } else {
+                        typingElement.innerHTML += text[i];
+                    }
+                    i++;
+                    setTimeout(typeWriter, interval);
+                }
+            }
+            typingElement.innerHTML = "";
+            typeWriter();
+        });
+    </script>
 
     <div id='about'>
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="assets/newpic3.jpeg" alt="pic3"> 
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; min-height: 300px;">
+                        <img src="assets/newpic3.jpeg" alt="pic3" style="margin-top: 40px; max-width: 100%; height: auto; display: block;" />
+                    </div>
                     <!-- <p>
                         <a href="assets/SaiYeshwanthMekala.pdf" target="_blank" class="btn">
                             Download my Resume
@@ -69,14 +103,14 @@
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
                     <p>
-                        A Data Science enthusiast excited in playing with Data to generate meaningful and actionable insights. I am highly interested in Statistical Analysis and Predictive Modeling. My proficiency in applying Statistical Analysis, Predictive Modeling leveraging Machine Learning, Neural Networks, Deep Learning and Data Visualization helps me to excel as a Data Scientist.
+                        I am a Data Science and AI enthusiast excited in playing with Data to generate meaningful and actionable insights. I am highly interested in Statistical Analysis, Predictive Modeling and AI Engineering. My proficiency in applying Statistical Analysis, Predictive Modeling leveraging Machine Learning, Neural Networks, Deep Learning and Data Visualization helps me to excel as a Data Scientist.
                     </p>
-                    <p>
+                    <!-- <p>
                         In my free time, I like watching Movies and playing Cricket. I enjoy listening to music, it charges me.
                     </p>
                     <p>
                         Sounds interesting? Let's connect and play with the Data! Learn more about my skills and experience below:
-                    </p>
+                    </p> -->
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick= "opentab('skills')">Skills</p>
                         <p class="tab-links" onclick= "opentab('experience')">Experience</p>
@@ -84,26 +118,134 @@
                     </div>
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
-                            <li><span>Programming:</span><br>Python, R, Java, C++, C, Pandas, NumPy</li>
-                            <li><span>Databases:</span><br>SQL, MySQL, Oracle, MongoDB</li>
-                            <li><span>Data Visualization:</span><br>Tableau, Power BI, Matplotlib, Seaborn, Plotly, ggplot2, Excel</li>
-                            <li><span>IDE’s:</span><br>Jupyter Notebook, R Studio, Eclipse, VS Code, Spyder, Minitab, SQL Server Management Studio, Hadoop</li>
-                            <li><span>Cloud:</span><br>IBM Watson Studio, Google Cloud, AWS</li>
-                            <li><span>Others:</span><br>Mathematics, Statistical Modeling, Hypothesis Testing, Predictive Analytics, Software Development, Natural Language Processing (NLP), Relational Databases, MySQL, MongoDB, Data Structures, Scikit-Learn, Git, IBM Watson Studio, Google Cloud, AWS, Web Scrapping, Azure ML, Databricks, CI/CD, ML Ops</li>
-                            <li><span>Interests:</span><br>Statistics, Data Mining, Transformers, LLM, Multimodal Models, Artificial Intelligence (AI), Big Data Analytics</li>
-                            <li><span>Languages:</span><br>English, Telugu (Native), Hindi</li>
+                            <li><span>Data Science & AI:</span><br>
+                                Python, R, SQL, Machine Learning, Deep Learning, NLP, LLMs, PyTorch, Scikit-Learn, XGBoost, MLOps, Model Deployment, FastAPI, Data Mining, Predictive Analytics
+                            </li>
+                            <li><span>Data Engineering:</span><br>
+                                PySpark, ETL Pipelines, PostgreSQL, NoSQL, AWS, Google Cloud, Vertex AI
+                            </li>
+                            <li><span>Data Visualization:</span><br>
+                                Power BI, Tableau, Matplotlib, Seaborn, Plotly, Excel
+                            </li>
+                            <li><span>Tools & IDEs:</span><br>
+                                Jupyter Notebook, VS Code, R Studio, Git, Microsoft Fabric
+                            </li>
+                            <li><span>Cloud:</span><br>
+                                AWS, Google Cloud Platform, IBM Watson Studio
+                            </li>
+                            <li><span>Interests:</span><br>
+                                AI, Big Data Analytics, Transformers, Multimodal Models
+                            </li>
+                            <li><span>Languages:</span><br>
+                                English, Telugu (Native), Hindi
+                            </li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="experience">
                         <ul>
-                            <li><span>13 May 2024 - Present</span><br>Data Scientist Co-op @ Johns Manville</li>
-                            <li><span>01 July 2021 - 30 June 2023</span><br>Systems Engineer @ Tata Consultancy Services</li>
+                            <li><strong>Total Experience: <span id="total-experience"></span></strong></li>
+                            <li><span>13 May 2024 - Present (<span id="jm-tenure"></span>)</span><br>Data Scientist @ Johns Manville</li>
+                            <li><span>01 January 2025 - 10 May 2025 (<span id="asante-tenure"></span>)</span><br>AI Solution Developer Capstone Project @ ASANTe</li>
+                            <li><span>01 July 2021 - 30 June 2023 (<span id="tcs-tenure"></span>)</span><br>Data Analyst/Systems Engineer @ Tata Consultancy Services</li>
                         </ul>
                     </div>
+                    <script>
+                        function calculateTenure(startDate, endDate) {
+                            var start = new Date(startDate);
+                            var end = endDate ? new Date(endDate) : new Date();
+                            var years = end.getFullYear() - start.getFullYear();
+                            var months = end.getMonth() - start.getMonth();
+                            var days = end.getDate() - start.getDate();
+                            if (days >= 0) {
+                                months += 1;
+                            }
+                            if (months < 0) {
+                                years -= 1;
+                                months += 12;
+                            }
+                            let result = '';
+                            if (years > 0) result += years + ' Year' + (years > 1 ? 's' : '');
+                            if (years > 0 && months > 0) result += ' ';
+                            if (months > 0) result += months + ' Month' + (months > 1 ? 's' : '');
+                            if (!result) result = 'Less than 1 Month';
+                            return result;
+                        }
+                        
+                        // Merge overlapping intervals and calculate total experience
+                        function calculateTotalExperience(jobs) {
+                            // Convert jobs to intervals
+                            let intervals = jobs.map(job => {
+                                let start = new Date(job.start);
+                                let end = job.end ? new Date(job.end) : new Date();
+                                return [start, end];
+                            });
+                        
+                            // Sort intervals by start date
+                            intervals.sort((a, b) => a[0] - b[0]);
+                        
+                            // Merge overlapping intervals
+                            let merged = [];
+                            for (let interval of intervals) {
+                                if (!merged.length || merged[merged.length - 1][1] < interval[0]) {
+                                    merged.push(interval);
+                                } else {
+                                    merged[merged.length - 1][1] = merged[merged.length - 1][1] > interval[1] ? merged[merged.length - 1][1] : interval[1];
+                                }
+                            }
+                        
+                            // Calculate total months from merged intervals (count full months including current)
+                            let totalMonths = 0;
+                            for (let [start, end] of merged) {
+                                let years = end.getFullYear() - start.getFullYear();
+                                let months = end.getMonth() - start.getMonth();
+                                let days = end.getDate() - start.getDate();
+                                if (days >= 0) {
+                                    months += 1;
+                                }
+                                if (months < 0) {
+                                    years -= 1;
+                                    months += 12;
+                                }
+                                totalMonths += years * 12 + months;
+                            }
+                            let years = Math.floor(totalMonths / 12);
+                            let months = totalMonths % 12;
+                            let result = '';
+                            if (years > 0) result += years + ' Year' + (years > 1 ? 's' : '');
+                            if (years > 0 && months > 0) result += ' ';
+                            if (months > 0) result += months + ' Month' + (months > 1 ? 's' : '');
+                            if (!result) result = 'Less than 1 Month';
+                            return result;
+                        }
+
+                        document.addEventListener('DOMContentLoaded', function() {
+                            // Johns Manville
+                            var jmTenure = document.getElementById('jm-tenure');
+                            if (jmTenure) jmTenure.textContent = calculateTenure('2024-05-13');
+
+                            // ASANTe Capstone
+                            var asanteTenure = document.getElementById('asante-tenure');
+                            if (asanteTenure) asanteTenure.textContent = calculateTenure('2025-01-01', '2025-05-10');
+
+                            // TCS
+                            var tcsTenure = document.getElementById('tcs-tenure');
+                            if (tcsTenure) tcsTenure.textContent = calculateTenure('2021-07-01', '2023-06-30');
+
+                            // Total Experience (avoid overlapping)
+                            var jobs = [
+                                {start: '2024-05-13'}, // Johns Manville (ongoing)
+                                {start: '2025-01-01', end: '2025-05-10'}, // ASANTe
+                                {start: '2021-07-01', end: '2023-06-30'} // TCS
+                            ];
+                            var totalExp = document.getElementById('total-experience');
+                            if (totalExp) totalExp.textContent = calculateTotalExperience(jobs);
+                        });
+                    </script>
+                    
                     <div class="tab-contents" id="education">
                         <ul>
-                            <li><span>2023-current</span><br>Masters in Data Science | University of Colorado Boulder</li>
-                            <li><span>2017-2021</span><br>Bachelors in Information and Communication Technology | SASTRA Deemed University</li>
+                            <li><span>August 2023 - May 2025</span><br>Master of Science in Data Science | University of Colorado Boulder</li>
+                            <li><span>July 2017 - July 2021</span><br>Bachelor of Technology in Information and Communication Technology | SASTRA Deemed University</li>
                         </ul>
                     </div>
                 </div>
