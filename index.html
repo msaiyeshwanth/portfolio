@@ -59,7 +59,7 @@
     </div>
     <div id="home1">
         <div class="home1text">
-            <p>Data Scientist and AI Enthusiast</p>
+            <p>Data and Applied Scientist</p>
             <h1 id="typing-effect"></h1>
         </div>
     </div>
@@ -156,7 +156,8 @@
                     <div class="tab-contents" id="experience">
                         <ul>
                             <li><strong>Total Experience: <span id="total-experience"></span></strong></li>
-                            <li><span>13 May 2024 - 31 Dec 2025 (<span id="jm-tenure"></span>)</span><br>Data Scientist Co-op@ Johns Manville</li>
+                            <li><span>04 May 2026 - Present (<span id="msft-tenure"></span>)</span><br>Applied Scientist 2 @ Microsoft</li>
+                            <li><span>13 May 2024 - 31 Dec 2025 (<span id="jm-tenure"></span>)</span><br>Data Scientist @ Johns Manville</li>
                             <li><span>10 January 2025 - 10 May 2025 (<span id="asante-tenure"></span>)</span><br>AI Engineer Capstone @ ASANTe</li>
                             <li><span>01 July 2021 - 30 June 2023 (<span id="tcs-tenure"></span>)</span><br>Systems Engineer @ Tata Consultancy Services</li>
                         </ul>
@@ -231,6 +232,10 @@
                         }
 
                         document.addEventListener('DOMContentLoaded', function() {
+                            // Microsoft
+                            var msftTenure = document.getElementById('msft-tenure');
+                            if (msftTenure) msftTenure.textContent = calculateTenure('2026-05-04');
+
                             // Johns Manville
                             var jmTenure = document.getElementById('jm-tenure');
                             if (jmTenure) jmTenure.textContent = calculateTenure('2024-05-13');
@@ -245,7 +250,8 @@
 
                             // Total Experience (avoid overlapping)
                             var jobs = [
-                                {start: '2024-05-13'}, // Johns Manville (ongoing)
+                                {start: '2026-05-04'}, // Microsoft (ongoing)
+                                {start: '2024-05-13', end: '2025-12-31'}, // Johns Manville
                                 {start: '2025-01-01', end: '2025-05-10'}, // ASANTe
                                 {start: '2021-07-01', end: '2023-06-30'} // TCS
                             ];
